@@ -1,0 +1,14 @@
+site_name: My Docs
+site_url: https://cooked.beer
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: purple
+  features:
+    - navigation.footer
+  extra:
+    social:
+      - icon: simple/github
+        link: https://github.com/rovxbot
