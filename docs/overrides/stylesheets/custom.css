@@ -80,3 +80,25 @@
     display: block;
     margin: auto;
 }
+
+/* Reduce footer height */
+.md-footer {
+    background: #1e1b3c;
+    color: white;
+    min-height: 60px; /* Thinner footer */
+    padding: 5px 0;
+}
+
+/* Ensure mascot is positioned correctly */
+.md-footer-meta img {
+    max-width: 100px;
+    display: block;
+}
+
+/* Ensure GitHub logo is positioned well */
+.md-footer-meta a img {
+    transition: transform 0.2s ease-in-out;
+}
+.md-footer-meta a img:hover {
+    transform: scale(1.1);
+}
