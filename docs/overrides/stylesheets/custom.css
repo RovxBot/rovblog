@@ -51,3 +51,17 @@
     background: #7b1fa2;
     border-radius: 10px;
 }
+/* Ensure footer sticks to the bottom */
+.md-footer {
+    background: #1e1b3c;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Make mascot image centered */
+.md-footer-meta img {
+    max-width: 120px;
+    display: block;
+    margin: 15px auto;
+}

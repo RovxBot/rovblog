@@ -3,6 +3,7 @@ site_url: https://rovblog.cooked.beer
 
 theme:
   name: material
+  custom_dir: docs/overrides
   palette:
     scheme: slate  # Ensures a dark background
     primary: deep purple  # Dominant color
