@@ -2,7 +2,7 @@
 :root {
     --md-primary-fg-color: #4a148c;  /* Deep purple */
     --md-primary-fg-color--light: #7b1fa2; /* Slightly lighter purple */
-    --md-accent-fg-color: #ff4081; /* Light pink accent */
+    --md-accent-fg-color: #ec40ff; /* Light pink accent */
     --md-default-bg-color: #1a1a2e;  /* Darker background */
     --md-code-bg-color: #2a2a3e; /* Darker code blocks */
 }
@@ -10,7 +10,7 @@
 /* Header customization */
 .md-header {
     background-color: #2c0b5f;
-    border-bottom: 2px solid #ff79c6;
+    border-bottom: 2px solid #d079ff;
 }
 
 /* Sidebar background */
@@ -20,11 +20,11 @@
 
 /* Links and buttons */
 .md-nav__link, .md-typeset a {
-    color: #ff79c6;
+    color: #f03ef0;
 }
 
 .md-nav__link:hover, .md-typeset a:hover {
-    color: #ffb6c1;
+    color: #8e0aa3;
 }
 
 /* Rounder buttons and elements */
@@ -34,7 +34,7 @@
     color: white;
 }
 .md-button:hover {
-    background: #9c27b0;
+    background: #790a8d;
 }
 
 /* Soft shadows for a modern feel */
