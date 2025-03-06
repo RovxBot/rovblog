@@ -3,20 +3,24 @@
 {% block footer %}
 <footer class="md-footer">
   <div class="md-footer-meta">
-    <div class="md-footer-meta__inner" style="text-align: center; padding: 20px;">
+    <div class="md-footer-meta__inner" style="display: flex; align-items: center; justify-content: space-between; padding: 20px;">
 
-      <!-- Copyright Text -->
-      <p>© 2025 Rov's Blogs - Built with ❤️ using MkDocs</p>
+      <!-- Left Spacer (for proper alignment) -->
+      <div style="flex: 1;"></div>
 
-      <!-- GitHub Logo -->
-      <a href="https://github.com/rovxbot" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
-             alt="GitHub" width="40px" style="margin: 10px;">
-      </a>
+      <!-- Centered Mascot -->
+      <div style="text-align: center;">
+        <img src="/assets/mascot.png" 
+             alt="Anime Mascot" width="120px" style="display: block; margin: auto;">
+      </div>
 
-      <!-- Anime Mascot -->
-      <img src="/docs/assets/mascot.png"
-           alt="Anime Mascot" width="120px" style="display: block; margin: 10px auto;">
+      <!-- GitHub Logo (Aligned Right) -->
+      <div style="flex: 1; text-align: right;">
+        <a href="https://github.com/rovxbot" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+               alt="GitHub" width="40px" style="margin-right: 20px;">
+        </a>
+      </div>
 
     </div>
   </div>

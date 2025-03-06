@@ -59,9 +59,24 @@
     padding: 20px;
 }
 
-/* Make mascot image centered */
+/* Ensure footer background matches the theme */
+.md-footer-meta {
+    background: #1e1b3c;
+    color: white;
+    padding: 20px;
+}
+
+/* Smooth hover effect for GitHub logo */
+.md-footer-meta a img {
+    transition: transform 0.2s ease-in-out;
+}
+.md-footer-meta a img:hover {
+    transform: scale(1.1);
+}
+
+/* Centered mascot styling */
 .md-footer-meta img {
     max-width: 120px;
     display: block;
-    margin: 15px auto;
+    margin: auto;
 }
