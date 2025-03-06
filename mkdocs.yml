@@ -4,30 +4,30 @@ site_url: https://rovblog.cooked.beer
 theme:
   name: material
   palette:
-    scheme: coral
-    primary: deep purple
-    accent: purple
+    scheme: slate  # Ensures a dark background
+    primary: deep purple  # Dominant color
+    accent: pink  # Lighter pink highlights
   features:
     - navigation.footer
-    - navigation.instant  # Faster page loads
-    - navigation.tracking  # Scroll spy for better navigation
-    - navigation.expand  # Expand the menu by default
-    - toc.integrate  # Integrate the table of contents in the sidebar
-    - header.autohide  # Auto-hide the header on scroll
-    - search.suggest  # Suggest search results
-    - search.highlight  # Highlight search terms
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - toc.integrate
+    - header.autohide
+    - search.suggest
+    - search.highlight
   font:
-    text: "M PLUS Rounded 1c"  # Softer, anime-style font
-    code: "JetBrains Mono"  # Better readability for code
+    text: "Poppins"  # Clean and readable
+    code: "JetBrains Mono"
   icon:
-    logo: material/emoticon-happy  # Cute, playful icon
+    logo: material/circle  # You can replace this with a custom logo
     repo: fontawesome/brands/github
 
 extra:
   social:
     - icon: simple/github
       link: https://github.com/rovxbot
-  generator: false  # Hide the "Powered by MkDocs" footer
+  generator: false  # Hide "Powered by MkDocs"
 
 nav:
   - Home: index.md
@@ -44,13 +44,10 @@ nav:
 extra_css:
   - stylesheets/custom.css
 
-extra_javascript:
-  - scripts/custom.js  # If you want to add fun interactive elements
-
 markdown_extensions:
   - admonition
   - pymdownx.superfences
-  - pymdownx.emoji  # Allows cute emoji in Markdown 🚀💖
+  - pymdownx.emoji  # Enables emoji support 🚀💜
   - pymdownx.tasklist
 
 plugins:
