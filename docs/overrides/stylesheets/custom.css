@@ -27,66 +27,49 @@
     color: #8e0aa3;
 }
 
-/* Rounder buttons and elements */
+/* Rounded buttons */
 .md-button {
     border-radius: 8px;
     background: #7b1fa2;
     color: white;
 }
+
 .md-button:hover {
     background: #790a8d;
 }
 
-/* Soft shadows for a modern feel */
+/* Card shadows for a modern feel */
 .md-card {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     background: #2a1b4a;
 }
 
-/* Custom scrollbar (optional) */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #7b1fa2;
     border-radius: 10px;
 }
-/* Ensure footer sticks to the bottom */
-.md-footer {
-    background: #1e1b3c;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-}
 
-/* Ensure footer background matches the theme */
-.md-footer-meta {
-    background: #1e1b3c;
-    color: white;
-    padding: 20px;
-}
-
-/* Smooth hover effect for GitHub logo */
-.md-footer-meta a img {
-    transition: transform 0.2s ease-in-out;
-}
-.md-footer-meta a img:hover {
-    transform: scale(1.1);
-}
-
-/* Centered mascot styling */
-.md-footer-meta img {
-    max-width: 120px;
-    display: block;
-    margin: auto;
-}
-
-/* Reduce footer height */
+/* Footer styles */
 .md-footer {
     background: #1e1b3c;
     color: white;
-    min-height: 60px; /* Thinner footer */
+    min-height: 50px; /* Make footer thinner */
     padding: 5px 0;
+    position: relative;
+}
+
+/* Footer meta styling */
+.md-footer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #1e1b3c;
 }
 
 /* Ensure mascot is positioned correctly */
@@ -95,10 +78,24 @@
     display: block;
 }
 
-/* Ensure GitHub logo is positioned well */
+/* Mascot placement - centered and slightly above footer */
+.md-footer-meta .mascot {
+    position: absolute;
+    bottom: -30px; /* Make it stick above the footer */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* GitHub logo placement - aligned right */
+.md-footer-meta .github {
+    text-align: right;
+}
+
+/* Smooth hover effect for GitHub logo */
 .md-footer-meta a img {
     transition: transform 0.2s ease-in-out;
 }
+
 .md-footer-meta a img:hover {
     transform: scale(1.1);
 }
