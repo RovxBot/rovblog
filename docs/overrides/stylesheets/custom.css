@@ -1,0 +1,25 @@
+/* Cute anime banner */
+.md-header {
+    background: url('https://your-image-url.com/banner.jpg') no-repeat center;
+    background-size: cover;
+}
+
+/* Soft pink hover effect */
+.md-nav__link:hover {
+    color: #ff79c6;
+}
+
+/* Rounded buttons and inputs */
+.md-button, .md-nav__link {
+    border-radius: 12px;
+}
+
+/* Cute pastel background for sidebar */
+.md-sidebar {
+    background-color: #4e0562;
+}
+
+/* Custom font for a soft, anime feel */
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}

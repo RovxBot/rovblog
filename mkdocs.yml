@@ -1,14 +1,58 @@
-site_name: My Docs
-site_url: https://cooked.beer
+site_name: Rov's Blogs!
+site_url: https://rovblog.cooked.beer
+
 theme:
   name: material
   palette:
-    scheme: slate
+    scheme: coral
     primary: deep purple
     accent: purple
   features:
     - navigation.footer
-  extra:
-    social:
-      - icon: simple/github
-        link: https://github.com/rovxbot
+    - navigation.instant  # Faster page loads
+    - navigation.tracking  # Scroll spy for better navigation
+    - navigation.expand  # Expand the menu by default
+    - toc.integrate  # Integrate the table of contents in the sidebar
+    - header.autohide  # Auto-hide the header on scroll
+    - search.suggest  # Suggest search results
+    - search.highlight  # Highlight search terms
+  font:
+    text: "M PLUS Rounded 1c"  # Softer, anime-style font
+    code: "JetBrains Mono"  # Better readability for code
+  icon:
+    logo: material/emoticon-happy  # Cute, playful icon
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: simple/github
+      link: https://github.com/rovxbot
+  generator: false  # Hide the "Powered by MkDocs" footer
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Configuration: getting-started/configuration.md
+  - Guides:
+      - Authentication: guides/authentication.md
+      - Deployment: guides/deployment.md
+  - Reference:
+      - API Docs: reference/api.md
+      - CLI Commands: reference/cli.md
+
+extra_css:
+  - stylesheets/custom.css
+
+extra_javascript:
+  - scripts/custom.js  # If you want to add fun interactive elements
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.emoji  # Allows cute emoji in Markdown 🚀💖
+  - pymdownx.tasklist
+
+plugins:
+  - search
+  - social
