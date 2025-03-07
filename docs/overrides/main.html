@@ -4,27 +4,21 @@
 <header class="md-header">
   <nav class="md-header__inner">
     
-    <!-- Left: Site Name -->
+    <!-- Site Name (Anime Style) -->
     <a href="{{ nav.homepage.url | url }}" class="md-header__title">
-      <span class="site-title">Rov's Blogs!</span>
+      <span class="site-title">My Anime Blog</span>
     </a>
 
-    <!-- Right: Dark Mode Toggle, Search, GitHub Stats -->
+    <!-- Right side elements -->
     <div class="md-header__options">
 
-      <!-- Dark Mode Toggle -->
+      <!-- Dark/Light Mode Toggle -->
       <button class="md-header__option" data-md-component="palette"></button>
 
-      <!-- Search Box -->
-      <div class="md-search" data-md-component="search"></div>
-
-      <!-- GitHub Stats -->
-      <div class="github-stats">
-        <a href="https://github.com/rovxbot" target="_blank">
-          <img src="{{ config.extra.statistics.github_followers }}" alt="GitHub Followers">
-          <img src="{{ config.extra.statistics.github_stars }}" alt="GitHub Stars">
-        </a>
-      </div>
+      <!-- GitHub Link (Top Right) -->
+      <a href="https://github.com/rovxbot" class="github-link" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
 
     </div>
   </nav>
