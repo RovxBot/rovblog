@@ -1,29 +1,27 @@
 {% extends "base.html" %}
 
-{% block header %}
-<header class="md-header">
-  <nav class="md-header__inner">
-    
-    <!-- Left: Site Name -->
-    <a href="{{ nav.homepage.url | url }}" class="md-header__title">
-      <span class="site-title">My Anime Blog</span>
-    </a>
+{% block footer %}
+<footer class="md-footer">
+  <div class="md-footer-meta">
+    <div class="md-footer-meta__inner">
 
-    <!-- Right: Dark Mode Toggle, Search, GitHub Link -->
-    <div class="md-header__options">
+      <!-- Copyright & Info -->
+      <p>© 2025 My Anime Blog - Built with ❤️ using MkDocs</p>
 
-      <!-- Dark Mode Toggle -->
-      <button class="md-header__option" data-md-component="palette"></button>
-
-      <!-- Search Box -->
-      <div class="md-search" data-md-component="search"></div>
-
-      <!-- GitHub Link -->
-      <a href="https://github.com/rovxbot" class="github-link" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
+      <!-- Tenor GIF Embed (Bottom Right) -->
+      <div class="gif-container">
+        <div class="tenor-gif-embed" data-postid="11179202365000547119" data-share-method="host" 
+          data-aspect-ratio="1" data-width="100%">
+          <a href="https://tenor.com/view/96yuku-dance-anime-cute-loop-gif-11179202365000547119">96yuku Dance Sticker</a> 
+          from <a href="https://tenor.com/search/96yuku-stickers">96yuku Stickers</a>
+        </div>
+      </div>
 
     </div>
-  </nav>
-</header>
+  </div>
+</footer>
+
+<!-- Tenor GIF Script -->
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 {% endblock %}

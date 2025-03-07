@@ -68,27 +68,34 @@
 .md-nav__link {
     position: relative;
     overflow: hidden;
+    display: inline-block; /* Ensure correct positioning */
+    transition: color 0.2s ease-in-out;
 }
 
 /* Add a pseudo-element for the expanding circle */
-.md-nav__link::before {
+.md-nav__link::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 10px;
     height: 10px;
-    background: rgba(255, 121, 198, 0.4); /* Soft pink circle */
+    background: rgba(236, 64, 255, 0.5); /* Soft pink-purple circle */
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    transition: transform 0.3s ease-out, opacity 0.5s ease-out;
+    opacity: 1;
+    transition: transform 0.3s ease-out, opacity 0.4s ease-out;
 }
 
 /* Expand and fade effect on hover */
-.md-nav__link:hover::before {
-    transform: translate(-50%, -50%) scale(3);
+.md-nav__link:hover::after {
+    transform: translate(-50%, -50%) scale(4);
     opacity: 0;
+}
+
+/* Make the text color pop on hover */
+.md-nav__link:hover {
+    color: #ff79c6 !important;
 }
 
 /* --- Rounded Buttons --- */
@@ -127,4 +134,20 @@
     justify-content: space-between;
     padding: 10px 20px;
     background: #1e1b3c;
+}
+
+/* Position GIF at bottom-right corner */
+.gif-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 120px; /* Adjust size as needed */
+    height: auto;
+    z-index: 1000;
+}
+
+/* Ensure the GIF loads properly */
+.tenor-gif-embed {
+    width: 100%;
+    height: auto;
 }

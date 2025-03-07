@@ -1,31 +1,17 @@
 # Welcome to Rov's Blogs!
 
----
-statistics: true
----
+Welcome to my site! I'm Rov a Micorsoft Cloud DevOps Engineer working in Australia. I have a passion for technology and the ways it can be used in an enterprise enviroment to improve productivity and efficiency.
 
-### 📊 Site Statistics
+If a task can be automated then it should be be!
 
-This documentation contains:
+I have a strong background in Microsoft technologies. If it has been developed by Microsoft then I have probably worked with it at some point in my career. I have a strong background in Azure, Office 365, Windows Server, Active Directory, Exchange, SQL Server, SharePoint, PowerShell, and many other Microsoft technologies.
 
-- **{{ pages }}** pages
-- **{{ words }}** words
-- **{{ codes }}** lines of code
-- **{{ images }}** images
+I am one of those wierdos that do this not only as a job but also for fun. I am always looking for new technologies to learn and new ways to improve my skills.
 
+Anyway enough about me, I hope you enjoy my blogs and find them useful. If you have any questions or comments please feel free to reach out to me! I am always happy to help where I can.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Latest Blogs
 
-## Commands
+{{< blogroll >}}
+```
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
