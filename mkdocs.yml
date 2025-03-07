@@ -1,4 +1,4 @@
-site_name: Rov's Blogs!
+site_name: "Rov's Blogs!"
 site_url: https://rovblog.cooked.beer
 
 theme:
@@ -31,19 +31,6 @@ theme:
 
 extra:
   social:
-    - icon: simple/github
+    - icon: fontawesome/brands/github
       link: https://github.com/rovxbot
   generator: false
-
-plugins:
-  - search
-  - social
-
-extra_css:
-  - stylesheets/custom.css
-
-markdown_extensions:
-  - admonition
-  - pymdownx.superfences
-  - pymdownx.emoji  # Enables emoji support 🚀💜
-  - pymdownx.tasklist
