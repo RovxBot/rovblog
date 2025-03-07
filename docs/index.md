@@ -1,5 +1,19 @@
 # Welcome to Rov's Blogs!
 
+---
+statistics: true
+---
+
+### 📊 Site Statistics
+
+This documentation contains:
+
+- **{{ pages }}** pages
+- **{{ words }}** words
+- **{{ codes }}** lines of code
+- **{{ images }}** images
+
+
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands

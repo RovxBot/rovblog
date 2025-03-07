@@ -23,7 +23,7 @@ theme:
     - navigation.instant
     - header.autohide
     - navigation.top
-    - toggle-mode  # Enables dark/light mode toggle
+    - toggle-mode
     - toggle-hidden
   font:
     text: "Poppins"
@@ -38,4 +38,8 @@ extra:
 plugins:
   - search
   - statistics:
-      github: rovxbot
+      page_statistics: true
+      page_read_time: true
+      page_images: true
+      words_per_minute: 300
+      codelines_per_minute: 80
