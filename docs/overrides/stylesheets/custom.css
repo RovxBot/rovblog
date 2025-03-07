@@ -19,6 +19,49 @@
 .md-header {
     background-color: #2c0b5f;
     border-bottom: 2px solid #d079ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Bigger, colored site title */
+.site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ec40ff; /* Light pink accent */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header options layout */
+.md-header__options {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between elements */
+}
+
+/* Move dark/light toggle to left of search */
+.md-header__option[data-md-component="palette"] {
+    order: 2;
+}
+
+/* Position search box between toggle and GitHub */
+.md-search {
+    order: 3;
+    flex-grow: 1;
+    max-width: 300px;
+}
+
+/* GitHub link with stats (aligned right) */
+.github-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.github-stats img {
+    height: 20px;
 }
 
 /* Sidebar background */
@@ -31,7 +74,13 @@
     color: #f03ef0;
 }
 
-.md-nav__link:hover, .md-typeset a:hover {
+/* Pop animation for navbar links */
+.md-nav__link {
+    transition: transform 0.2s ease-in-out;
+}
+
+.md-nav__link:hover {
+    transform: scale(1.1);
     color: #8e0aa3;
 }
 

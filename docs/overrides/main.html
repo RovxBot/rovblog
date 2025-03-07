@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 
-{% block footer %}
-<footer class="md-footer" style="padding: 10px 0; min-height: 50px; position: relative;">
-  <div class="md-footer-meta">
-    <div class="md-footer-meta__inner" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+{% block header %}
+<header class="md-header">
+  <nav class="md-header__inner">
+    
+    <!-- Site Name (Large & Colored) -->
+    <a href="{{ nav.homepage.url | url }}" class="md-header__title">
+      <span class="site-title">My Docs</span>
+    </a>
 
-      <!-- Left Spacer -->
-      <div style="flex: 1;"></div>
+    <div class="md-header__options">
 
-      <!-- Mascot Image (Centered and Positioned Over Footer) -->
-      <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);">
-        <img src="/assets/mascot.png" 
-             alt="Anime Mascot" width="100px" style="display: block;">
-      </div>
+      <!-- Dark/Light Mode Toggle -->
+      <button class="md-header__option" data-md-component="palette"></button>
 
-      <!-- GitHub Logo (Right Aligned) -->
-      <div style="flex: 1; text-align: right;">
-        <a href="https://github.com/rovxbot" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
-               alt="GitHub" width="30px" style="margin-right: 20px;">
-        </a>
-      </div>
+      <!-- Search Box -->
+      <div class="md-search" data-md-component="search"></div>
+
+      <!-- GitHub Profile (With Stats) -->
+      <a href="https://github.com/rovxbot" class="github-stats" target="_blank">
+        <img src="https://img.shields.io/github/followers/rovxbot?label=Followers&style=social">
+        <img src="https://img.shields.io/github/stars/rovxbot?label=Stars&style=social">
+      </a>
 
     </div>
-  </div>
-</footer>
+  </nav>
+</header>
 {% endblock %}

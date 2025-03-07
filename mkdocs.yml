@@ -4,56 +4,40 @@ site_url: https://rovblog.cooked.beer
 theme:
   name: material
   palette:
-    - media: "(prefers-color-scheme: light)"  # Light mode
+    - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: deep purple
       accent: pink
-    - media: "(prefers-color-scheme: dark)"  # Dark mode
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: deep purple
       accent: pink
   features:
-    - navigation.sections  # Sections in the sidebar
-    - navigation.expand  # Expand sections by default
-    - navigation.footer  # Footer stays visible
-    - toc.integrate  # Show table of contents in the sidebar
-    - search.suggest  # Search suggestions
-    - search.highlight  # Highlight search terms
-    - content.code.copy  # Copy button for code blocks
-    - navigation.instant  # Faster page transitions
-    - header.autohide  # Hide header when scrolling down
-    - navigation.top  # Back to top button
-    - toggle-mode  # Enables light/dark mode toggle
-    - toggle-hidden  # Hide toggle if only one theme is available
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - navigation.instant
+    - header.autohide
+    - navigation.top
+    - toggle-mode  # Enables dark/light mode toggle
+    - toggle-hidden
   font:
-    text: "Inter"
+    text: "Poppins"  # Modern readable font
     code: "JetBrains Mono"
-  icon:
-    logo: material/book-open-page-variant  # Adjust the logo
-    repo: fontawesome/brands/github
 
 extra:
   social:
     - icon: simple/github
       link: https://github.com/rovxbot
-  generator: false  # Hide "Powered by MkDocs" text
-
-nav:
-  - Home: index.md
-  - Getting Started:
-      - Installation: getting-started/installation.md
-      - Configuration: getting-started/configuration.md
-  - Guides:
-      - Authentication: guides/authentication.md
-      - Deployment: guides/deployment.md
-  - Reference:
-      - API Docs: reference/api.md
-      - CLI Commands: reference/cli.md
+  generator: false
 
 plugins:
   - search
   - social
-  - tags  # Enables tagging system
 
 extra_css:
   - stylesheets/custom.css
