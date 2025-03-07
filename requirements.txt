@@ -1,2 +1,5 @@
 mkdocs-material==9.6.7
 mkdocs-material[imaging]
+mkdocs-git-revision-date-localized-plugin
+mkdocs-glightbox
+mkdocs-section-index

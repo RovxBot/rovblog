@@ -54,8 +54,6 @@ plugins:
   - search
   - social
   - tags  # Enables tagging system
-  - minify:
-      minify_html: true  # Optimize performance
 
 extra_css:
   - stylesheets/custom.css
