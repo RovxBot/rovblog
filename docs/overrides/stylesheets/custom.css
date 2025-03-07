@@ -33,27 +33,28 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* Header options layout */
+/* Arrange header elements */
 .md-header__options {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between elements */
+    gap: 15px; /* Space between elements */
 }
 
-/* Move dark/light toggle to left of search */
+/* Dark/Light mode toggle - positioned left of search */
 .md-header__option[data-md-component="palette"] {
-    order: 2;
+    order: 1;
 }
 
-/* Position search box between toggle and GitHub */
+/* Search box - positioned between toggle & GitHub */
 .md-search {
-    order: 3;
+    order: 2;
     flex-grow: 1;
     max-width: 300px;
 }
 
 /* GitHub link with stats (aligned right) */
 .github-stats {
+    order: 3;
     display: flex;
     align-items: center;
     gap: 8px;
