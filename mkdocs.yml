@@ -13,15 +13,17 @@ theme:
       primary: deep purple
       accent: pink
   features:
-    - navigation.sections  # Sidebar sections
-    - navigation.expand  # Expand sidebar links by default
-    - navigation.footer  # Footer enabled
-    - toc.integrate  # Table of contents in the sidebar
-    - search.suggest  # Search suggestions
-    - search.highlight  # Highlights search terms
-    - navigation.instant  # Faster page loads
-    - header.autohide  # Hides header when scrolling down
-    - toggle-mode  # Enables light/dark mode toggle
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - navigation.instant
+    - header.autohide
+    - navigation.top
+    - toggle-mode  # Enables dark/light mode toggle
     - toggle-hidden  # Hides toggle if only one theme is available
 
   font:
@@ -29,24 +31,18 @@ theme:
     code: "JetBrains Mono"
 
   icon:
-    logo: material/heart  # You can change this to another cute icon
-    repo: fontawesome/brands/github  # GitHub icon
+    logo: material/heart
+    repo: fontawesome/brands/github
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/rovxbot
-  generator: false  # Hide "Powered by MkDocs"
-
-nav:
-  - Home: index.md
-  - Blog:
-      - First Post: blog/first-post.md
-      - Second Post: blog/second-post.md
-  - About: about.md
+  generator: false
 
 plugins:
   - search
+  - statistics  # Ensures statistics plugin is enabled
 
 extra_css:
   - stylesheets/custom.css

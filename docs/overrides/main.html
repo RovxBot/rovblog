@@ -4,18 +4,21 @@
 <header class="md-header">
   <nav class="md-header__inner">
     
-    <!-- Site Name (Anime Style) -->
+    <!-- Left: Site Name -->
     <a href="{{ nav.homepage.url | url }}" class="md-header__title">
       <span class="site-title">My Anime Blog</span>
     </a>
 
-    <!-- Right side elements -->
+    <!-- Right: Dark Mode Toggle, Search, GitHub Link -->
     <div class="md-header__options">
 
-      <!-- Dark/Light Mode Toggle -->
+      <!-- Dark Mode Toggle -->
       <button class="md-header__option" data-md-component="palette"></button>
 
-      <!-- GitHub Link (Top Right) -->
+      <!-- Search Box -->
+      <div class="md-search" data-md-component="search"></div>
+
+      <!-- GitHub Link -->
       <a href="https://github.com/rovxbot" class="github-link" target="_blank">
         <i class="fab fa-github"></i>
       </a>
