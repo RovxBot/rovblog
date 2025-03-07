@@ -4,25 +4,25 @@
 <header class="md-header">
   <nav class="md-header__inner">
     
-    <!-- Left: Site Name (Large & Colored) -->
+    <!-- Left: Site Name -->
     <a href="{{ nav.homepage.url | url }}" class="md-header__title">
       <span class="site-title">Rov's Blogs!</span>
     </a>
 
-    <!-- Right side elements -->
+    <!-- Right: Dark Mode Toggle, Search, GitHub Stats -->
     <div class="md-header__options">
 
-      <!-- Dark/Light Mode Toggle -->
+      <!-- Dark Mode Toggle -->
       <button class="md-header__option" data-md-component="palette"></button>
 
-      <!-- Search Box (Between Toggle and GitHub) -->
+      <!-- Search Box -->
       <div class="md-search" data-md-component="search"></div>
 
-      <!-- GitHub Profile (With Stats) -->
+      <!-- GitHub Stats -->
       <div class="github-stats">
         <a href="https://github.com/rovxbot" target="_blank">
-          <img src="https://img.shields.io/github/followers/rovxbot?label=Followers&style=social">
-          <img src="https://img.shields.io/github/stars/rovxbot?label=Stars&style=social">
+          <img src="{{ config.extra.statistics.github_followers }}" alt="GitHub Followers">
+          <img src="{{ config.extra.statistics.github_stars }}" alt="GitHub Stars">
         </a>
       </div>
 

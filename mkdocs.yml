@@ -26,7 +26,7 @@ theme:
     - toggle-mode  # Enables dark/light mode toggle
     - toggle-hidden
   font:
-    text: "Poppins"  # Modern readable font
+    text: "Poppins"
     code: "JetBrains Mono"
 
 extra:
@@ -34,3 +34,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/rovxbot
   generator: false
+
+plugins:
+  - search
+  - statistics:
+      github: rovxbot
