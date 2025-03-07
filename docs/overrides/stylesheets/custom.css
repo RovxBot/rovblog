@@ -1,10 +1,18 @@
-/* Darker background with deep purple tones */
+/* Dark mode adjustments */
 :root {
-    --md-primary-fg-color: #4a148c;  /* Deep purple */
-    --md-primary-fg-color--light: #7b1fa2; /* Slightly lighter purple */
-    --md-accent-fg-color: #ec40ff; /* Light pink accent */
-    --md-default-bg-color: #1a1a2e;  /* Darker background */
-    --md-code-bg-color: #2a2a3e; /* Darker code blocks */
+    --md-primary-fg-color: #4a148c;
+    --md-primary-fg-color--light: #7b1fa2;
+    --md-accent-fg-color: #ec40ff;
+    --md-default-bg-color: #1a1a2e;
+    --md-code-bg-color: #2a2a3e;
+}
+
+/* Light mode adjustments */
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #6a1b9a;
+    --md-accent-fg-color: #d81b60;
+    --md-default-bg-color: #ffffff;
+    --md-code-bg-color: #f5f5f5;
 }
 
 /* Header customization */

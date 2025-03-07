@@ -3,32 +3,40 @@ site_url: https://rovblog.cooked.beer
 
 theme:
   name: material
-  custom_dir: docs/overrides
   palette:
-    scheme: slate  # Ensures a dark background
-    primary: deep purple  # Dominant color
-    accent: pink  # Lighter pink highlights
+    - media: "(prefers-color-scheme: light)"  # Light mode
+      scheme: default
+      primary: deep purple
+      accent: pink
+    - media: "(prefers-color-scheme: dark)"  # Dark mode
+      scheme: slate
+      primary: deep purple
+      accent: pink
   features:
-    - navigation.footer
-    - navigation.instant
-    - navigation.tracking
-    - navigation.expand
-    - toc.integrate
-    - header.autohide
-    - search.suggest
-    - search.highlight
+    - navigation.sections  # Sections in the sidebar
+    - navigation.expand  # Expand sections by default
+    - navigation.footer  # Footer stays visible
+    - toc.integrate  # Show table of contents in the sidebar
+    - search.suggest  # Search suggestions
+    - search.highlight  # Highlight search terms
+    - content.code.copy  # Copy button for code blocks
+    - navigation.instant  # Faster page transitions
+    - header.autohide  # Hide header when scrolling down
+    - navigation.top  # Back to top button
+    - toggle-mode  # Enables light/dark mode toggle
+    - toggle-hidden  # Hide toggle if only one theme is available
   font:
-    text: "Poppins"  # Clean and readable
+    text: "Inter"
     code: "JetBrains Mono"
   icon:
-    logo: material/circle  # You can replace this with a custom logo
+    logo: material/book-open-page-variant  # Adjust the logo
     repo: fontawesome/brands/github
 
 extra:
   social:
     - icon: simple/github
       link: https://github.com/rovxbot
-  generator: false  # Hide "Powered by MkDocs"
+  generator: false  # Hide "Powered by MkDocs" text
 
 nav:
   - Home: index.md
@@ -42,6 +50,13 @@ nav:
       - API Docs: reference/api.md
       - CLI Commands: reference/cli.md
 
+plugins:
+  - search
+  - social
+  - tags  # Enables tagging system
+  - minify:
+      minify_html: true  # Optimize performance
+
 extra_css:
   - stylesheets/custom.css
 
@@ -50,7 +65,3 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.emoji  # Enables emoji support 🚀💜
   - pymdownx.tasklist
-
-plugins:
-  - search
-  - social
