@@ -1,10 +1,5 @@
 # Welcome to Rov's Blogs!
 
-<!-- GitHub Stats Icon -->
-<a href="github-stats.md" class="github-stats-icon">
-    <i class="fab fa-github"></i>
-</a>
-
 Welcome to my site! I'm Rov a Micorsoft Cloud DevOps Engineer working in Australia. I have a passion for technology and the ways it can be used in an enterprise enviroment to improve productivity and efficiency.
 
 If a task can be automated then it should be be!
@@ -16,6 +11,4 @@ I am one of those wierdos that do this not only as a job but also for fun. I am 
 Anyway enough about me, I hope you enjoy my blogs and find them useful. If you have any questions or comments please feel free to reach out to me! I am always happy to help where I can.
 
 # Latest Blogs
-
-{{< blogroll >}}
 
