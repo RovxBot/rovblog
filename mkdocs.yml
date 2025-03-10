@@ -57,6 +57,7 @@ nav:
   - PIM:
       - Getting Started: PIM/GettingStarted.md
       - Groups: PIM/Groups.md
+  - GitHub Stats: github-stats.md
       
 extra:
   social:

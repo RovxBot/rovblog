@@ -36,9 +36,10 @@
     gap: 15px; /* Space between elements */
 }
 
-/* --- Dark/Light Mode Toggle (Left of GitHub Link) --- */
+/* --- Dark/Light Mode Toggle (Left of GitHub Stats Icon) --- */
 .md-header__option[data-md-component="palette"] {
     order: 1;
+    margin-left: 40px; /* Adjust spacing as needed */
 }
 
 /* --- GitHub Link in Top Right --- */
@@ -52,6 +53,20 @@
 .github-link:hover {
     transform: scale(1.2);
     color: #ff79c6;
+}
+
+/* --- GitHub Stats Icon --- */
+.github-stats-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: var(--md-primary-fg-color);
+    transition: color 0.2s ease-in-out;
+}
+
+.github-stats-icon:hover {
+    color: var(--md-accent-fg-color);
 }
 
 /* --- Sidebar Background (Dark Purple) --- */
