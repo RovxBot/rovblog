@@ -15,7 +15,6 @@ theme:
   features:
     - navigation.sections
     - navigation.expand
-    - navigation.footer
     - toc.integrate
     - search.suggest
     - search.highlight
@@ -24,7 +23,6 @@ theme:
     - header.autohide
     - navigation.top
     - toggle-mode  # Enables dark/light mode toggle
-    - toggle-hidden  # Hides toggle if only one theme is available
 
   font:
     text: "Poppins"

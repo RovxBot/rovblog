@@ -21,96 +21,9 @@
     border-bottom: 2px solid #d079ff; /* Soft pink */
 }
 
-/* --- Bigger, Colored Site Title (Anime Style) --- */
-.site-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #ec40ff; /* Pink */
-    font-family: "Poppins", sans-serif;
-}
-
-/* --- Header Options Layout (Fixes Positioning) --- */
-.md-header__options {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between elements */
-}
-
-/* --- Dark/Light Mode Toggle (Left of GitHub Stats Icon) --- */
-.md-header__option[data-md-component="palette"] {
-    order: 1;
-    margin-left: 40px; /* Adjust spacing as needed */
-}
-
-/* --- GitHub Link in Top Right --- */
-.github-link {
-    font-size: 1.4rem;
-    color: #fff;
-    margin-left: 10px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.github-link:hover {
-    transform: scale(1.2);
-    color: #ff79c6;
-}
-
-/* --- GitHub Stats Icon --- */
-.github-stats-icon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1.5rem;
-    color: var(--md-primary-fg-color);
-    transition: color 0.2s ease-in-out;
-}
-
-.github-stats-icon:hover {
-    color: var(--md-accent-fg-color);
-}
-
-/* --- Sidebar Background (Dark Purple) --- */
-.md-sidebar {
-    background-color: #1e1b3c;
-}
-
 /* --- Navigation Links --- */
 .md-nav__link, .md-typeset a {
     color: #f03ef0;
-}
-
-/* --- Navigation Link Pop Effect on Hover --- */
-.md-nav__link {
-    position: relative;
-    overflow: hidden;
-    display: inline-block; /* Ensure correct positioning */
-    transition: color 0.2s ease-in-out;
-}
-
-/* Add a pseudo-element for the expanding circle */
-.md-nav__link::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background: rgba(236, 64, 255, 0.5); /* Soft pink-purple circle */
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-    transition: transform 0.3s ease-out, opacity 0.4s ease-out;
-}
-
-/* Expand and fade effect on hover */
-.md-nav__link:hover::after {
-    transform: translate(-50%, -50%) scale(4);
-    opacity: 0;
-}
-
-/* Make the text color pop on hover */
-.md-nav__link:hover {
-    color: #ff79c6 !important;
 }
 
 /* --- Rounded Buttons --- */
@@ -134,35 +47,12 @@
     border-radius: 10px;
 }
 
-/* --- Footer Styling (Dark & Cute) --- */
-.md-footer {
-    background: #1e1b3c;
-    color: white;
-    min-height: 50px;
-    padding: 5px 0;
+/* --- Hide Footer --- */
+.md-footer, .md-footer-meta {
+    display: none;
 }
 
-/* --- Footer Meta (Centered Layout) --- */
-.md-footer-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: #1e1b3c;
-}
-
-/* Position GIF at bottom-right corner */
-.gif-container {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 120px; /* Adjust size as needed */
-    height: auto;
-    z-index: 1000;
-}
-
-/* Ensure the GIF loads properly */
-.tenor-gif-embed {
-    width: 100%;
-    height: auto;
+/* --- Hide Bottom Navigation Links --- */
+.md-footer-nav {
+    display: none;
 }
