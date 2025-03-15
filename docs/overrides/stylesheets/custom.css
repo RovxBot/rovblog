@@ -56,3 +56,16 @@
 .md-footer-nav {
     display: none;
 }
+
+/* --- Navigation Panel Customization --- */
+.md-sidebar {
+    background-color: #2c0b5f; /* Dark purple */
+}
+
+.md-nav__link {
+    color: #d079ff; /* Soft pink */
+}
+
+.md-nav__link:hover {
+    color: #ec40ff; /* Cute pink */
+}
