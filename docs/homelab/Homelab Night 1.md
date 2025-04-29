@@ -99,7 +99,7 @@ metal:
     - Im unsure if this is what was required, but we will see I guess.
 
 - git commit and push!
-- Homelab token for github: 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
+- Homelab token for github: 
 
 You need to use a token for login for CLI. Using your github username and password will not work.
 
