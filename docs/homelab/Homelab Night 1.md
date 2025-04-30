@@ -88,8 +88,8 @@ metal:
   children:
     masters:
       hosts:
-        metal0: {ansible_host: 192.168.1.190, mac: 'D8:9E:F3:90:E8:31', disk: nvme0n1, network_interface: enp0}
-        metal1: {ansible_host: 192.168.1.191, mac: 'D8:9E:F3:10:E8:A8', disk: nvme0n1, network_interface: enp0}
+        metal0: {ansible_host: 192.168.1.190, mac: 'D8:9E:F3:90:E8:31', disk: nvme0n1, network_interface: enp0s31f6}
+        metal1: {ansible_host: 192.168.1.191, mac: 'D8:9E:F3:10:E8:A8', disk: nvme0n1, network_interface: enp0s31f6}
     workers:
       hosts:
 ```
