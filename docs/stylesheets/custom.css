@@ -55,13 +55,33 @@
 
 /* --- Subtle Patterned Background --- */
 body {
-    background: repeating-linear-gradient(
-        135deg,
-        #1a1a2e 0px,
-        #1a1a2e 40px,
-        #2c0b5f 40px,
-        #2c0b5f 80px
-    );
+    background: linear-gradient(135deg, #1a1a2e 0%, #2c0b5f 100%);
+}
+
+/* --- Sidebar Title/Logo Styling --- */
+.md-sidebar__title, .md-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #f3bfff !important;
+    letter-spacing: 2px;
+    padding: 24px 0 12px 0;
+    text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
+    border-bottom: 2px solid #d079ff44;
+    border-radius: 0 0 18px 18px;
+    background: rgba(60, 20, 100, 0.12);
+}
+
+/* --- Main Header Title Styling --- */
+.md-header__title {
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: #f3bfff !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
+    font-weight: bold;
 }
 
 /* --- Light Mode Theme Colors --- */
