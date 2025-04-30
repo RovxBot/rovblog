@@ -7,6 +7,63 @@
     --md-code-bg-color: #2a2a3e; /* Code block background */
 }
 
+/* --- Playful Heading Font (Anime Style) --- */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    color: #f3bfff;
+}
+
+/* --- Mascot Image (Anime Girl) --- */
+.anime-mascot {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1001;
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 12px #a259ffcc);
+    transition: transform 0.2s;
+    border-radius: 18px;
+    background: rgba(60, 20, 100, 0.25);
+    padding: 4px;
+}
+.anime-mascot:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 0 24px #f3bfff99;
+}
+
+/* --- Cute Card Style for Content Blocks --- */
+.md-typeset .admonition, .md-typeset details {
+    border-radius: 16px;
+    background: #2c0b5f33;
+    border: 2px solid #d079ff55;
+    box-shadow: 0 2px 16px #a259ff22;
+}
+
+/* --- Pastel Accent for Links and Buttons --- */
+.md-typeset a, .md-nav__link {
+    color: #f3bfff !important;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+.md-typeset a:hover, .md-nav__link:hover {
+    color: #ffb3e6 !important;
+}
+
+/* --- Subtle Patterned Background --- */
+body {
+    background: repeating-linear-gradient(
+        135deg,
+        #1a1a2e 0px,
+        #1a1a2e 40px,
+        #2c0b5f 40px,
+        #2c0b5f 80px
+    );
+}
+
 /* --- Light Mode Theme Colors --- */
 [data-md-color-scheme="default"] {
     --md-primary-fg-color: #6a1b9a; /* Softer purple */
@@ -62,10 +119,46 @@
     background-color: #2c0b5f; /* Dark purple */
 }
 
+/* --- Themed Dividing Bar Between Navigation and Content --- */
+.md-sidebar {
+    position: relative;
+}
+.md-sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 6px;
+    height: 100vh;
+    background: linear-gradient(180deg, #d079ff 0%, #a259ff 50%, #ec40ff 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 16px 2px #a259ff55;
+    opacity: 0.85;
+    z-index: 1000;
+    pointer-events: none;
+}
+
 .md-nav__link {
     color: #d079ff; /* Soft pink */
 }
 
 .md-nav__link:hover {
     color: #ec40ff; /* Cute pink */
+    animation: bounce-pop 0.35s;
+}
+
+/* --- Bounce Pop Animation for Nav Links --- */
+@keyframes bounce-pop {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.15) rotate(-2deg);
+    }
+    60% {
+        transform: scale(0.96) rotate(1deg);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
