@@ -16,5 +16,7 @@ If you have not already, go and install App Controll manager:
 ```powershell
 (irm 'https://raw.githubusercontent.com/HotCakeX/Harden-Windows-Security/main/Harden-Windows-Security.ps1')+'AppControl'|iex
 ```
+!!! UPDATE "UPDATE"
+    Since writing this article, SpyNetGirl has now released a new version that is available on the Windows Store!
 
 For further guidance on installing App Control Manager, check out the [GitHub page](https://github.com/HotCakeX/Harden-Windows-Security)

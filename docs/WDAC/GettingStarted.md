@@ -13,6 +13,7 @@ Obviously Audit mode is just that, it audits. It doesn't block anything, but rep
 
 ## Getting Started
 OK so to get started we should firt go over everyrhing you are going to need to get started.
+
 - Defender for Endpoint P2 license
 - Windows 10 Enterprise or Education
 - Intune enrolled devices
@@ -21,6 +22,7 @@ OK so to get started we should firt go over everyrhing you are going to need to 
 
 So basically what you will be doing is creating an audit mode policy to block everything bar Micorsoft signed. You will then monitor this in the Security centre for a few weeks to see what is getting blocked. Cross check this with your list of approved apps. Then build a supplemental policy to allow these apps to run.
 So in a list:
+
 - Create a list of apporved apps
 - Create a base policy to block all bar MS signed
 - Monitor for a few weeks
