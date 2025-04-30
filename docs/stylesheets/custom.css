@@ -82,6 +82,9 @@ body {
     letter-spacing: 2px;
     text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* --- Light Mode Theme Colors --- */
@@ -152,9 +155,9 @@ body {
 }
 
 /* --- Hide Footer --- */
-.md-footer, .md-footer-meta {
+/* .md-footer, .md-footer-meta {
     display: none;
-}
+} */
 
 /* --- Hide Bottom Navigation Links --- */
 .md-footer-nav {
@@ -177,11 +180,11 @@ body {
 }
 .md-sidebar::after {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 64px;
-    right: -10px;
+    left: 300px;
     width: 6px;
-    height: calc(100% - 64px);
+    bottom: 0;
     background: linear-gradient(180deg, #d079ff 0%, #a259ff 50%, #ec40ff 100%);
     border-radius: 8px;
     box-shadow: 0 0 16px 2px #a259ff55;
