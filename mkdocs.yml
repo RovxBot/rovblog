@@ -46,6 +46,11 @@ theme:
 
 nav:
   - Home: index.md
+  - Homelab:
+      - Night one: homelab/Homelab Night 1.md
+      - Night two: homelab/Homelab Night 2.md
+      - Night three: homelab/Homelab Night 3.md
+      - Night four: homelab/Homelab Night 4.md
   - Windows Defender Application Control (WDAC):
       - Getting Started: WDAC/GettingStarted.md
       - Configuration: WDAC/configuration.md
