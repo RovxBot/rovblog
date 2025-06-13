@@ -1,246 +1,39 @@
-/* --- Dark Mode Theme Colors --- */
-:root {
-    --md-primary-fg-color: #4a148c; /* Deep purple */
-    --md-primary-fg-color--light: #7b1fa2; /* Light purple */
-    --md-accent-fg-color: #ec40ff; /* Cute pink */
-    --md-default-bg-color: #1a1a2e; /* Dark purple background */
-    --md-code-bg-color: #2a2a3e; /* Code block background */
-}
-
-/* --- Playful Heading Font (Anime Style) --- */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
-
-.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
-    font-family: 'Baloo 2', 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    color: #f3bfff;
-}
-
-/* --- Mascot Image (Anime Girl) --- */
-.anime-mascot {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    z-index: 1001;
-    width: 120px;
-    height: auto;
-    filter: drop-shadow(0 0 12px #a259ffcc);
-    transition: transform 0.2s;
-    border-radius: 18px;
-    background: rgba(60, 20, 100, 0.25);
-    padding: 4px;
-}
-.anime-mascot:hover {
-    transform: scale(1.07) rotate(-2deg);
-    box-shadow: 0 0 24px #f3bfff99;
-}
-
-/* --- Cute Card Style for Content Blocks --- */
-.md-typeset .admonition, .md-typeset details {
-    border-radius: 16px;
-    background: #2c0b5f33;
-    border: 2px solid #d079ff55;
-    box-shadow: 0 2px 16px #a259ff22;
-}
-
-/* --- Pastel Accent for Links and Buttons --- */
-.md-typeset a, .md-nav__link {
-    color: #f3bfff !important;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 2px;
-}
-.md-typeset a:hover, .md-nav__link:hover {
-    color: #ffb3e6 !important;
-}
-
-/* --- Subtle Patterned Background --- */
-body {
-    background: #181820;
-}
-
-/* --- Sidebar Title/Logo Styling --- */
-.md-sidebar__title, .md-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Baloo 2', 'Poppins', sans-serif;
-    font-size: 2rem;
-    color: #f3bfff !important;
-    letter-spacing: 2px;
-    padding: 24px 0 12px 0;
-    text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
-    border-bottom: 2px solid #d079ff44;
-    border-radius: 0 0 18px 18px;
-    background: rgba(60, 20, 100, 0.12);
-}
-
-/* --- Main Header Title Styling --- */
-.md-header__title {
-    font-family: 'Baloo 2', 'Poppins', sans-serif;
-    font-size: 2.2rem;
-    color: #f3bfff !important;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* --- Light Mode Theme Colors --- */
-[data-md-color-scheme="default"] {
-    --md-primary-fg-color: #6a1b9a; /* Softer purple */
-    --md-accent-fg-color: #d81b60; /* Light pink */
-    --md-default-bg-color: #ffffff; /* White background */
-    --md-code-bg-color: #f5f5f5; /* Light code blocks */
-}
-
-/* --- Custom Sidebar Logo/Title Styling --- */
-.md-sidebar__title {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    min-height: 80px;
-    background: linear-gradient(90deg, #a259ff22 0%, #ec40ff22 100%);
-    border-bottom: 2px solid #d079ff44;
-    border-radius: 0 0 18px 18px;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
-}
-.md-sidebar__title .md-logo {
-    display: none !important;
-}
-.md-sidebar__title::before {
-    content: "🌸 Rov's Blog";
-    font-family: 'Baloo 2', 'Poppins', sans-serif;
-    font-size: 2rem;
-    color: #f3bfff;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 12px #a259ff55, 0 1px 0 #fff2;
-    font-weight: bold;
-    padding: 0 12px;
-}
-
-/* --- Header Customization --- */
-.md-header {
-    background-color: #2c0b5f; /* Dark purple */
-    border-bottom: 2px solid #d079ff; /* Soft pink */
-}
-
-/* --- Navigation Links --- */
-.md-nav__link, .md-typeset a {
-    color: #f03ef0;
-}
-
-/* --- Rounded Buttons --- */
-.md-button {
-    border-radius: 8px;
-    background: #7b1fa2;
-    color: white;
-}
-
-.md-button:hover {
-    background: #790a8d;
-}
-
-/* --- Custom Scrollbar (Purple Aesthetic) --- */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #7b1fa2;
-    border-radius: 10px;
-}
-
-/* --- Hide Footer --- */
-/* .md-footer, .md-footer-meta {
-    display: none;
-} */
-
-/* --- Hide Bottom Navigation Links --- */
-.md-footer-nav {
-    display: none;
-}
-
-/* --- Navigation Panel Customization --- */
-.md-sidebar {
-    background-color: #2c0b5f; /* Dark purple */
-}
-
-/* --- Themed Dividing Bar Between Navigation and Content --- */
-.md-sidebar {
-    position: relative;
-}
-.md-sidebar {
-    position: relative;
-    min-height: 100%;
-    height: 100%;
-}
-.md-sidebar::after {
-    content: "";
-    position: fixed;
-    top: 64px;
-    left: 300px;
-    width: 6px;
-    bottom: 0;
-    background: linear-gradient(180deg, #d079ff 0%, #a259ff 50%, #ec40ff 100%);
-    border-radius: 8px;
-    box-shadow: 0 0 16px 2px #a259ff55;
-    opacity: 0.85;
-    z-index: 1000;
-    pointer-events: none;
-}
-
+/* Styling for navigation menu main titles */
 .md-nav__link {
-    color: #d079ff; /* Soft pink */
+    color: #8d1b83; /* Darker color for all menu items */
+    font-size: 1.2em; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold font to make them stand out */
 }
 
-.md-nav__link:hover {
-    color: #ec40ff; /* Cute pink */
-    animation: bounce-pop 0.35s;
+/* Specific styling for main titles only */
+.md-nav__link--active {
+    font-size: 1.5em; /* Larger font size for main titles */
+    color: #c10ae6; /* Even darker color for main titles */
 }
 
-/* --- Bounce Pop Animation for Nav Links --- */
-@keyframes bounce-pop {
-    0% {
-        transform: scale(1);
-    }
-    30% {
-        transform: scale(1.15) rotate(-2deg);
-    }
-    60% {
-        transform: scale(0.96) rotate(1deg);
-    }
-    100% {
-        transform: scale(1);
-    }
+
+/* Adds glow effect to Update admonitions */
+.md-typeset .admonition {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Blue glow effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    padding: 10px; /* Add some padding inside the box */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
-/* --- Custom Footer Social Icons --- */
-.custom-footer {
-    background: #23232b;
-    border-top: 2px solid #a259ff55;
-    padding: 24px 0 12px 0;
-    text-align: center;
-    margin-top: 48px;
+
+/* Enhance the glow effect on hover */
+.md-typeset .admonition:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Brighter glow on hover */
 }
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 8px;
+
+/* Adds glow effect to danger admonitions */
+.md-typeset .admonition.danger {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Blue glow effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    padding: 10px; /* Add some padding inside the box */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
-.footer-socials a svg {
-    transition: transform 0.2s, filter 0.2s;
-    filter: drop-shadow(0 2px 8px #a259ff44);
-}
-.footer-socials a:hover svg {
-    transform: scale(1.15) rotate(-6deg);
-    filter: drop-shadow(0 2px 16px #ec40ff88);
-}
-.footer-copyright {
-    color: #bdbdd7;
-    font-size: 1rem;
-    margin-top: 4px;
+
+/* Enhance the glow effect on hover */
+.md-typeset .admonition.danger:hover {
+    box-shadow: 0 0 20px rgb(255, 0, 0, 1); /* Brighter glow on hover */
 }
