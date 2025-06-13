@@ -1,0 +1,12 @@
+/* Styling for navigation menu main titles */
+.md-nav__link {
+    color: #8d1b83; /* Darker color for all menu items */
+    font-size: 1.2em; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold font to make them stand out */
+}
+
+/* Specific styling for main titles only */
+.md-nav__link--active {
+    font-size: 1.5em; /* Larger font size for main titles */
+    color: #c10ae6; /* Even darker color for main titles */
+}
