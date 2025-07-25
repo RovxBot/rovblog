@@ -40,11 +40,11 @@ theme:
 
 nav:
   - Tech Blogs: index.md
-  - Homelab: 
-      - Night one: homelab/Homelab Night 1.md
-      - Night two: homelab/Homelab Night 2.md
-      - Night three: homelab/Homelab Night 3.md
-      - Night four: homelab/Homelab Night 4.md
+  - Homelab-K8s: 
+      - K8s Night one: homelab/K8s/Homelab Night 1.md
+      - K8s Night two: homelab/K8s/Homelab Night 2.md
+  - Homelab-Dokploy:
+      - Plan: homelab/Dokploy/Plan.md
   - Tailscale:
       - Homelab Config: Tailscale/Homelab Config.md
   - Windows Defender Application Control (WDAC):
@@ -56,6 +56,17 @@ nav:
   - PIM:
       - Getting Started: PIM/GettingStarted.md
       - Groups: PIM/Groups.md
+  - Version Control:
+      - Intro: VersionControl/Intro.md
+      - AZ-400: VersionControl/AZ-400.md
+      - Azure DataFactory: VersionControl/AzureDataFactory.md
+      - Ingestion Pipelines: VersionControl/IngestionPipelines.md
+      - PowerBI: VersionControl/PowerBI.md
+      - PowerPages: VersionControl/PowerPages.md
+  - Game Lore:
+      - Higher Power: Game/HigherPower.md
+      - Of Elves: Game/OfElves.md
+      - The Gnomes: Game/TheGnomes.md
       
 extra:
   social:
