@@ -244,7 +244,7 @@ make
 The culmination of Night 2's work was successfully executing the build process, validating that all components were properly configured and integrated.
 
 **Build Output Analysis:**
-![Make Output](./docs/assets/nix_make.png)
+![Make Output](../../assets/nix_make.png)
 
 !!! tip "Build Process Verification"
     The successful `make` execution confirms:

@@ -27,3 +27,6 @@ https://tower.risk-lenok.ts.net (Funnel on)
 
 This is now handled through the Unraid Tailscale plugin directly. Jellyfin itself is now funneled without exposing any other applications on Unraid. It also auto starts, and keeps its own persistant URL.
 
+# Update 2
+
+I am no longer using Unraid. Tailscale fulleling for metal0 has been enabled to that Jellyfin gets exposed
