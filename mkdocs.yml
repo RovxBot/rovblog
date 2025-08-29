@@ -1,5 +1,12 @@
-site_name: "Rov's Blog"
+site_name: "Rov's Tech Blog"
 site_url: https://rovblog.cooked.beer
+site_description: "Microsoft Cloud DevOps Engineer sharing home lab projects, security implementations, and development best practices"
+site_author: "Rov"
+copyright: "Copyright &copy; 2024 Rov"
+
+repo_url: https://github.com/RovxBot/rovblog
+repo_name: RovxBot/rovblog
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -13,10 +20,18 @@ theme:
       primary: deep purple
       accent: pink
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
     - toc.integrate
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
 
   font:
     text: "Poppins"
@@ -39,23 +54,40 @@ theme:
       quote: octicons/quote-16
 
 nav:
-  - Tech Blogs: index.md
-  - Homelab: 
-      - Night one: homelab/Homelab Night 1.md
-      - Night two: homelab/Homelab Night 2.md
-      - Night three: homelab/Homelab Night 3.md
-      - Night four: homelab/Homelab Night 4.md
-  - Tailscale:
-      - Homelab Config: Tailscale/Homelab Config.md
-  - Windows Defender Application Control (WDAC):
-      - Getting Started: WDAC/GettingStarted.md
-      - Configuration: WDAC/configuration.md
-  - Conditional Access:
-      - Authentication: ConditionalAccess/authentication.md
-      - Deployment: ConditionalAccess/deployment.md
-  - PIM:
-      - Getting Started: PIM/GettingStarted.md
-      - Groups: PIM/Groups.md
+  - Home: index.md
+  - Homelab:
+      - Kubernetes Setup:
+          - Night 1 - Development Environment: homelab/K8s/Homelab Night 1.md
+          - Night 2 - Hardware Setup: homelab/K8s/Homelab Night 2.md
+      - Docker Swarm with Dokploy:
+          - Deployment Plan: homelab/Dokploy/Plan.md
+          - My Home Lab Guide: homelab/Dokploy/MyHomeLab.md
+  - Networking:
+      - Tailscale:
+          - Homelab Configuration: Tailscale/Homelab Config.md
+  - Security & Identity:
+      - Windows Defender Application Control (WDAC):
+          - Getting Started: WDAC/GettingStarted.md
+          - Configuration: WDAC/configuration.md
+      - Conditional Access:
+          - Authentication: Conditional Acess/Authentication.md
+          - Deployment: Conditional Acess/Deployment.md
+      - Privileged Identity Management (PIM):
+          - Getting Started: PIM/GettingStarted.md
+          - Groups Management: PIM/Groups.md
+  - Development & DevOps:
+      - Version Control:
+          - Introduction: Version Control/Intro.md
+          - AZ-400 Certification: Version Control/AZ-400.md
+          - Azure Data Factory: Version Control/AzureDataFactory.md
+          - Data Ingestion Pipelines: Version Control/IngestionPipelines.md
+          - Power BI: Version Control/PowerBI.md
+          - Power Pages: Version Control/PowerPages.md
+  - Creative Writing:
+      - Game Lore:
+          - Higher Power: Game/HigherPower.md
+          - Of Elves: Game/OfElves.md
+          - The Gnomes: Game/TheGnomes.md
       
 extra:
   social:
@@ -66,16 +98,61 @@ extra:
     - icon: fontawesome/brands/steam
       link: https://steamcommunity.com/id/rovbot/
     - icon: fontawesome/brands/discord
-      link: hhttps://discord.com/users/253028999666728960
+      link: https://discord.com/users/253028999666728960
   generator: false
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - tags
 
 extra_css:
   - stylesheets/custom.css
 
 markdown_extensions:
+  - abbr
   - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: On this page
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: rovxbot
+      repo: rovblog
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

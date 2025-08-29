@@ -1,0 +1,21 @@
+# Chapter 1: Higher Power
+
+The world of Althum—a land shaped by magic, marred by war, and steeped in ancient mysteries—has, after generations of conflict, settled into a fragile peace. This tenuous balance holds for now, but beneath the surface, old grudges simmer and empires hunger for more.
+
+At the center of this era stands the Kingdom of Bandor, the heart of humanity’s power and ambition. Named after the legendary First Men, and still ruled by the ancient Bandor bloodline, the kingdom stretches proudly across the northern face of the world. Its territory spans from the storm-swept Darkstone Mountains to the windswept valleys of Torgoth Pass, positioning it as a vital trade nexus between the hardy Dwarves of Darkstone and the rest of the known world.
+
+Once a loose collection of fortified settlements, Bandor grew rapidly through iron will, strategic marriages, and military might. Its expansion reached as far north as the lush woodlands of Ember Shire, a modest village founded by the noble Eldora family. With Bandor’s patronage, Ember Shire flourished, and the Eldoras grew powerful in their own right. Yet ambition breeds rebellion. Claiming the wild northern lands as their own, the Eldora family broke from Bandor and declared independence, founding the Kingdom of Eldora.
+
+The Bandor king, enraged by this betrayal, launched a campaign to reclaim the north. After a brutal war and the tragic razing of Ember Shire, the Eldoras bent the knee, swearing fealty once more. Though tensions remained, the Bandors permitted them to keep their northern crown—so long as their loyalty was never questioned again.
+
+With the north secured, Bandor’s gaze turned southwestward to the desolate Torgoth Highlands—a barren expanse once home to the now-extinct orc clans. Though harsh and unforgiving, the Highlands held strategic value, and their conquest promised untold wealth from new trade routes. The Torgoth family, fierce warriors descended from barbarian stock, volunteered to lead the first expedition. They vanished into the wilderness and were not heard from again for many years.
+
+Subsequent expeditions met the same fate. At last, Bandor conscripted the Eldoras to send a force to uncover the Highlands’ secrets. What they found was staggering.
+
+The Torgoth family had survived, even thrived. Hardened by the wilds, they had carved fortresses into the cliffs and transformed into something more brutal, more primal. The Eldora envoys made contact—but diplomacy failed. When Bandor and Eldora armies marched to reclaim the Highlands, they were met by unyielding resistance. The Torgoth had fortified every pass and fought like the very stone itself. The campaign ended in a costly retreat. The Highlands, once thought conquered, remained firmly in Torgoth hands.
+
+Bandor, frustrated by this stinging defeat, pushed southward. They founded the village of Bandor’s Edge, perched on the border of the mysterious Emerald Forest. It was a mistake. The ancient Elves of the Emerald stirred from their long slumber, displeased by the human encroachment. These elves—bloodthirsty, nomadic, and in tune with the ancient spirits—worshipped forgotten gods and offered sacrifices to sustain their power and unnaturally long lives.
+
+Some say the elves were the first to wield magic. Others claim the breakaway Silverleaf elves taught humanity the arcane arts out of pity. The noble houses, especially Bandor, insist that magic was a divine gift bestowed only upon worthy human bloodlines. No matter the truth, Bandor’s Edge suffered. Despite walls and weapons, the village could not hold back the spectral raids and whispering shadows. Eventually, it was pulled back from the forest’s edge, left half-abandoned and ever-watchful. The elves have not attacked in many years—but they have not forgotten.
+
+Still seeking glory, the aging Bandor king launched one final expedition, pushing to the southern seas. Along the coast, he founded Everstill Bay, a lonely fishing port built beside strangely still waters. It now stands as a gateway to the unexplored world beyond—the edge of Bandor’s influence and the first stone in the foundation of something greater.

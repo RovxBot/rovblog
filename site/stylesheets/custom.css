@@ -1,0 +1,39 @@
+/* Styling for navigation menu main titles */
+.md-nav__link {
+    color: #8d1b83; /* Darker color for all menu items */
+    font-size: 1.2em; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold font to make them stand out */
+}
+
+/* Specific styling for main titles only */
+.md-nav__link--active {
+    font-size: 1.5em; /* Larger font size for main titles */
+    color: #c10ae6; /* Even darker color for main titles */
+}
+
+
+/* Adds glow effect to Update admonitions */
+.md-typeset .admonition {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Blue glow effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    padding: 10px; /* Add some padding inside the box */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Enhance the glow effect on hover */
+.md-typeset .admonition:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Brighter glow on hover */
+}
+
+/* Adds glow effect to danger admonitions */
+.md-typeset .admonition.danger {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Blue glow effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    padding: 10px; /* Add some padding inside the box */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Enhance the glow effect on hover */
+.md-typeset .admonition.danger:hover {
+    box-shadow: 0 0 20px rgb(255, 0, 0, 1); /* Brighter glow on hover */
+}
