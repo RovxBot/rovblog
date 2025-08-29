@@ -1,191 +1,281 @@
-# Design Document: Client Data Ingestion & Reporting Platform
+# Azure Infrastructure Automation
 
-## Objective
+!!! info "Automated Azure Resource Provisioning"
+    This post covers the complete automation of Azure infrastructure provisioning for client onboarding, including Resource Groups, Azure Data Factory, Key Vault, and Service Principal configuration.
 
-To implement a scalable, secure, and automated data pipeline that ingests monthly data from client APIs, stores it in Microsoft Fabric OneLake, and generates customized Power BI reports through a controlled Dev/Test/Prod deployment process. Each client’s data and reports must be securely separated, in accordance with ISO certification requirements.
+## Overview
 
+The foundation of our automated client onboarding system is the ability to provision complete Azure environments with a single PowerShell command. This infrastructure automation creates isolated, secure environments for each client while maintaining consistency and following enterprise best practices.
 
+## Step 1: Base Azure Infrastructure
 
-## 1. System Overview
+Each client receives a dedicated set of Azure resources that are completely isolated from other clients:
 
-Core Technologies
-* Ingestion: Azure Data Factory (ADF)
-* Storage: Microsoft Fabric OneLake (Delta Lake format)
-* Processing: Fabric Lakehouse (with optional Dataflows Gen2)
-* Reporting: Power BI with Deployment Pipelines
-* Version Control: GitHub
-* Security: Azure RBAC, Row-Level Security (RLS), OneLake folder-level isolation
+### Core Components
 
+- **Resource Group**: Isolated container for all client resources
+- **Azure Data Factory**: Data integration and ETL service instance
+- **Key Vault**: Secure credential and secret management
+- **Service Principal**: Automated identity for Microsoft Fabric access
 
+### Automated Provisioning Script
 
-## 2. Architecture Summary
+The PowerShell automation script handles the complete infrastructure setup:
 
-**High-Level Flow**
-1.	Monthly Trigger in ADF initiates data collection for each client.
-2.	Data Ingestion from external client APIs using parameterized pipelines.
-3.	Data Storage in OneLake with client-specific folder paths.
-4.	Power BI Workspaces per client access only their data.
-5.	Power BI Deployment Pipelines manage Dev → Test → Prod progression.
-6.	Reports are securely shared with individual clients.
+```powershell
+function New-ClientInfrastructure {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ClientName,
 
+        [Parameter(Mandatory = $true)]
+        [string]$SubscriptionId,
 
+        [Parameter(Mandatory = $true)]
+        [string]$Location = "Australia East"
+    )
 
-## 3. Data Ingestion Layer (Azure Data Factory)
+    Write-Host "Starting infrastructure provisioning for client: $ClientName" -ForegroundColor Green
 
-**Pipeline Design**
-* Parameterization: Accepts client_id, api_url, token.
-* Scheduling: Monthly triggers per client.
-* Secrets: Stored in Azure Key Vault.
+    # Set Azure context
+    Set-AzContext -SubscriptionId $SubscriptionId
 
-**Steps**
-1.	Connect to client API (REST connector)
-2.	Fetch and parse data (JSON/CSV/XML)
-3.	Write data to OneLake as Delta files:
+    # Create Resource Group
+    $resourceGroupName = "rg-$ClientName-data-platform"
+    Write-Host "Creating Resource Group: $resourceGroupName"
 
-```
-/Clients/{client_id}/yyyy-MM/data.delta
-```
+    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $Location -Tag @{
+        Client = $ClientName
+        Environment = "Production"
+        Purpose = "DataPlatform"
+        CreatedBy = "AutomationScript"
+        CreatedDate = (Get-Date).ToString("yyyy-MM-dd")
+    }
 
+    # Create Azure Data Factory
+    $adfName = "adf-$ClientName-prod"
+    Write-Host "Creating Azure Data Factory: $adfName"
 
+    $dataFactory = New-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Name $adfName -Location $Location
 
-## 4. Data Storage Layer (Microsoft Fabric OneLake)
+    # Create Key Vault with unique name
+    $keyVaultName = "kv-$ClientName-$(Get-Random -Minimum 1000 -Maximum 9999)"
+    Write-Host "Creating Key Vault: $keyVaultName"
 
-**Storage Model**
-* Shared Lakehouse for all clients
-* Client-specific folders to enforce isolation
-* Data stored in Delta format for optimal querying
+    $keyVault = New-AzKeyVault -ResourceGroupName $resourceGroupName -VaultName $keyVaultName -Location $Location -EnabledForTemplateDeployment
 
-**Example Structure**
-
-```
-OneLake Workspace: Client-Data-Lakehouse
-/
-├── Clients/
-│   ├── ClientA/
-│   │   └── 2025-07/
-│   │       └── data.delta
-│   └── ClientB/
-│       └── 2025-07/
-│           └── data.delta
-```
-
-
-## 5. Reporting Layer (Power BI)
-
-**Workspace Strategy**
-
-Each client receives their own Power BI workspaces:
-
-- ClientA-Dev
-- ClientA-Test
-- ClientA-Prod
-- ClientB-Dev
-- ClientB-Test
-- ClientB-Prod
-
-**Deployment Pipeline**
-* Dev: Development and initial connection to client data
-* Test: Internal QA and refresh validation
-* Prod: Final client-ready reports
-
-**GitHub Integration**
-* PBIX files stored and versioned in client-specific GitHub repos
-* Power BI REST API or Fabric GitHub Actions used for CI/CD
-
-
-## 6. Data Access & Security
-
-**Access Control**
-* OneLake Folder Isolation: Each Power BI dataset only connects to the client’s folder.
-* RBAC: Azure AD roles restrict access to each workspace.
-* Optional RLS: If multi-client model is needed (not recommended here)
-
-**Sharing**
-* Power BI Apps: Used to bundle and share client reports
-* Power BI Embedded: Optional for embedding into client portals with token-based access
-
-**Compliance**
-* All pipelines and storage follow ISO-compliant best practices
-* Audit logs and access control are enforced via Azure
-
-
-## 7. Automation & Monitoring
-
-**Automation**
-* ADF pipeline triggers: Monthly per client
-* Dataset refreshes: Scheduled or event-triggered post-ingestion
-* GitHub Actions deploy ADF and Power BI artifacts from repo
-
-**onitoring Tools**
-* ADF Activity Monitoring
-* Power BI Refresh History
-* Azure Monitor for alerts and logs
-
-
-## 8. Naming Conventions
-
-**Workspaces**
-
-{ClientName}-{Stage}
-Examples:
-- AcmeCorp-Dev
-- AcmeCorp-Test
-- AcmeCorp-Prod
-
-**OneLake Paths**
-```
-/Clients/{client_id}/{yyyy-MM}/data.delta
+    return @{
+        ResourceGroup = $resourceGroup
+        DataFactory = $dataFactory
+        KeyVault = $keyVault
+    }
+}
 ```
 
+## Service Principal Creation for Fabric Access
 
-## 9. Demo Setup Guide (Full Walkthrough)
+Creating a service principal that Azure Data Factory can use to access Microsoft Fabric:
 
-**Step 1: Provision Infrastructure**
-* Create Resource Group
-* Create OneLake Lakehouse workspace
-* Create Key Vault and set API secrets
+```powershell
+function New-FabricServicePrincipal {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ClientName,
 
-**Step 2: Create and Publish GitHub Repo**
-* Use a repo template with ADF pipeline JSON, ARM/Bicep deployment scripts
-* Push to GitHub and configure Actions
+        [Parameter(Mandatory = $true)]
+        [string]$KeyVaultName
+    )
 
-**Step 3: Deploy Azure Data Factory**
-* Use ARM/Bicep to deploy ADF instance
-* Deploy ingestion pipeline using GitHub Actions on push to main or publish branch
+    Write-Host "Creating Service Principal for Fabric access"
 
-**Step 4: Configure ADF Pipeline**
-* Parameterize pipeline for client_id, api_url, and auth_key
-* Set monthly trigger
-* Store secrets in Key Vault, reference them in Linked Services
+    # Create Azure AD Application
+    $appName = "sp-$ClientName-fabric-access"
+    $app = New-AzADApplication -DisplayName $appName
 
-Step 5: Setup OneLake Folder
-* Create /Clients/DemoClient/yyyy-MM/ folder
-* Confirm pipeline writes data to Delta file format
+    # Create Service Principal
+    $sp = New-AzADServicePrincipal -ApplicationId $app.AppId
 
-**Step 6: Create Power BI Workspaces**
-* Create Dev, Test, Prod workspaces using Power BI REST API or manually
-* Register them in Fabric deployment pipeline UI
+    # Generate client secret
+    $clientSecret = New-AzADAppCredential -ApplicationId $app.AppId
 
-**Step 7: Version Control Power BI Reports**
-* Save reports as PBIP format in GitHub
-* On PR or merge to main, deploy report via GitHub Action or manual trigger
+    # Store credentials in Key Vault
+    Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name "Fabric-SP-TenantId" -SecretValue (ConvertTo-SecureString -String (Get-AzContext).Tenant.Id -AsPlainText -Force)
+    Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name "Fabric-SP-ClientId" -SecretValue (ConvertTo-SecureString -String $app.AppId -AsPlainText -Force)
+    Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name "Fabric-SP-Secret" -SecretValue (ConvertTo-SecureString -String $clientSecret.SecretText -AsPlainText -Force)
 
-**Step 8: Connect Power BI Dataset to OneLake**
-* Use delta/Parquet connector to point to the demo folder
-* Load and model dataset
+    Write-Host "Service Principal created and credentials stored in Key Vault"
 
-**Step 9: Secure Access**
-* Use Azure AD security groups to restrict workspace access
-* Create Power BI App and share with demo users
+    return @{
+        TenantId = (Get-AzContext).Tenant.Id
+        ClientId = $app.AppId
+        ClientSecret = $clientSecret.SecretText
+        ServicePrincipal = $sp
+    }
+}
+```
 
+## Key Vault Integration
 
-## 10. Future Enhancements
-* Implement Azure Purview for data catalog and classification
-* Automate workspace and pipeline creation using PowerShell + REST APIs
-* Add retry logic and alerting to ADF pipelines
-* Expand GitHub workflows to support multiple branches and environments
+Configuring Azure Data Factory to access Key Vault secrets:
 
+```powershell
+function Set-ADFKeyVaultAccess {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ResourceGroupName,
 
-## 11. Conclusion
+        [Parameter(Mandatory = $true)]
+        [string]$DataFactoryName,
 
-This design ensures scalable, secure, and maintainable data processing across multiple clients. It enables customized reporting through isolated workspaces and centralized storage, while enforcing strict data segregation and compliance with ISO standards. The added step-by-step demo guide supports rapid prototyping and testing of the architecture in your own environment.
+        [Parameter(Mandatory = $true)]
+        [string]$KeyVaultName
+    )
+
+    Write-Host "Configuring ADF access to Key Vault"
+
+    # Get ADF Managed Identity
+    $adf = Get-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName -Name $DataFactoryName
+    $adfIdentity = $adf.Identity.PrincipalId
+
+    # Grant ADF access to Key Vault
+    Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ObjectId $adfIdentity -PermissionsToSecrets Get,List
+
+    Write-Host "ADF granted access to Key Vault secrets"
+}
+```
+
+## Client API Credentials Management
+
+Storing client-specific API credentials securely:
+
+```powershell
+function Set-ClientAPICredentials {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ClientName,
+
+        [Parameter(Mandatory = $true)]
+        [string]$KeyVaultName,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ApiKey,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ApiBaseUrl
+    )
+
+    Write-Host "Storing client API credentials in Key Vault"
+
+    # Store client-specific secrets
+    $clientPrefix = "$ClientName-API"
+
+    Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name "$clientPrefix-Key" -SecretValue (ConvertTo-SecureString -String $ApiKey -AsPlainText -Force)
+    Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name "$clientPrefix-BaseUrl" -SecretValue (ConvertTo-SecureString -String $ApiBaseUrl -AsPlainText -Force)
+
+    Write-Host "Client API credentials stored securely"
+}
+```
+
+## Complete Infrastructure Setup
+
+The main orchestration function that ties everything together:
+
+```powershell
+function Initialize-ClientInfrastructure {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ClientName,
+
+        [Parameter(Mandatory = $true)]
+        [string]$SubscriptionId,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ApiKey,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ApiBaseUrl,
+
+        [string]$Location = "Australia East"
+    )
+
+    try {
+        Write-Host "Starting complete infrastructure setup for: $ClientName" -ForegroundColor Cyan
+
+        # Step 1: Create base Azure resources
+        $infrastructure = New-ClientInfrastructure -ClientName $ClientName -SubscriptionId $SubscriptionId -Location $Location
+
+        # Step 2: Create Service Principal for Fabric
+        $servicePrincipal = New-FabricServicePrincipal -ClientName $ClientName -KeyVaultName $infrastructure.KeyVault.VaultName
+
+        # Step 3: Configure ADF Key Vault access
+        Set-ADFKeyVaultAccess -ResourceGroupName $infrastructure.ResourceGroup.ResourceGroupName -DataFactoryName $infrastructure.DataFactory.DataFactoryName -KeyVaultName $infrastructure.KeyVault.VaultName
+
+        # Step 4: Store client API credentials
+        Set-ClientAPICredentials -ClientName $ClientName -KeyVaultName $infrastructure.KeyVault.VaultName -ApiKey $ApiKey -ApiBaseUrl $ApiBaseUrl
+
+        Write-Host "Infrastructure setup completed successfully!" -ForegroundColor Green
+
+        return @{
+            ResourceGroup = $infrastructure.ResourceGroup.ResourceGroupName
+            DataFactory = $infrastructure.DataFactory.DataFactoryName
+            KeyVault = $infrastructure.KeyVault.VaultName
+            ServicePrincipal = $servicePrincipal
+        }
+    }
+    catch {
+        Write-Error "Infrastructure setup failed: $($_.Exception.Message)"
+        throw
+    }
+}
+```
+
+## Usage Example
+
+Here's how to use the infrastructure automation:
+
+```powershell
+# Install required modules
+Install-Module -Name Az -Force -AllowClobber
+
+# Connect to Azure
+Connect-AzAccount
+
+# Run complete infrastructure setup
+$result = Initialize-ClientInfrastructure -ClientName "Contoso" -SubscriptionId "your-subscription-id" -ApiKey "client-api-key" -ApiBaseUrl "https://api.contoso.com"
+
+# Output results
+Write-Host "Infrastructure created:"
+Write-Host "Resource Group: $($result.ResourceGroup)"
+Write-Host "Data Factory: $($result.DataFactory)"
+Write-Host "Key Vault: $($result.KeyVault)"
+```
+
+## Key Benefits
+
+### Isolation and Security
+- **Complete resource isolation** per client
+- **Secure credential management** with Key Vault
+- **Managed identity integration** for ADF
+- **Automated access control** configuration
+
+### Consistency and Compliance
+- **Standardised naming conventions** across all resources
+- **Consistent tagging strategy** for resource management
+- **Automated compliance** with security best practices
+- **Audit trail** through resource tags and logging
+
+### Scalability and Automation
+- **Repeatable infrastructure** for any number of clients
+- **Error handling and validation** built into scripts
+- **Modular functions** for easy maintenance and updates
+- **Integration ready** for the next automation steps
+
+## Next Steps
+
+With the Azure infrastructure automated, the next phase involves:
+
+1. **[Repository Template System](IngestionPipelines.md)** - Automated GitHub repository creation
+2. **[Microsoft Fabric Automation](PowerBI.md)** - Workspace and pipeline provisioning
+3. **[Complete Integration](PowerPages.md)** - End-to-end automation orchestration
+
+This infrastructure automation forms the foundation that enables the entire client onboarding process to be completed in minutes rather than hours or days.

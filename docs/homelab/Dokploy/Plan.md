@@ -28,14 +28,14 @@ This document outlines the step-by-step process for building a robust Docker Swa
 
 ### Node Configuration
 
-**Cluster Topology:**
-- **metal0** `192.168.1.190` - Primary manager node (done)
-- **metal1** `192.168.1.191` - Worker node (done)
-- **metal2** `192.168.1.192` - Worker node (done)
-- **metal3** `192.168.1.193` - Worker node (done)
-- **metal4** `192.168.1.194` - Worker node (done)
-- **metal5** `192.168.1.195` - Secondary manager node (done)
-- **metal6** `192.168.1.196` - Worker node (done)
+- **Cluster Topology:**
+    - **metal0** `192.168.1.190` - Primary manager node
+    - **metal1** `192.168.1.191` - Worker node
+    - **metal2** `192.168.1.192` - Worker node
+    - **metal3** `192.168.1.193` - Secondary manager node
+    - **metal4** `192.168.1.194` - Worker node
+    - **metal5** `192.168.1.195` - Secondary manager node
+    - **metal6** `192.168.1.196` - Worker node
 
 !!! note "Manager Node Strategy"
     Docker Swarm requires an odd number of manager nodes for quorum. With 7 nodes total, having 2 managers provides redundancy while maintaining cluster stability.
@@ -101,16 +101,17 @@ sudo tailscale up --ssh --accept-routes
 ### Administrative Configuration
 
 **From Tailscale Admin Console:**
+
 1. **Approve all devices** - Authorise each node to join the network
 2. **Enable MagicDNS** - Allows hostname-based connectivity
 3. **Rename nodes** to match physical hostnames:
-   - metal0
-   - metal1
-   - metal2
-   - metal3
-   - metal4
-   - metal5
-   - metal6
+    - metal0
+    - metal1
+    - metal2
+    - metal3
+    - metal4
+    - metal5
+    - metal6
 4. **Configure ACLs** (optional) - Restrict access between nodes if needed
 
 ### Connectivity Testing
@@ -269,24 +270,24 @@ http://192.168.1.190:3000
 **Complete the initial setup wizard:**
 
 1. **Create Admin User**
-   - Set a strong password
-   - Use a valid email address for notifications
-   - Enable two-factor authentication if available
+    - Set a strong password
+    - Use a valid email address for notifications
+    - Enable two-factor authentication if available
 
 2. **Configure Domain Settings**
-   - Set default domain suffix (e.g., `cooked.beer`)
-   - Configure DNS settings for automatic subdomain creation
-   - Set up SSL certificate management
+    - Set default domain suffix (e.g., `cooked.beer`)
+    - Configure DNS settings for automatic subdomain creation
+    - Set up SSL certificate management
 
 3. **Docker Registry Configuration**
-   - Configure Docker Hub credentials (if using private images)
-   - Set up private registry access (optional)
-   - Configure image pull policies
+    - Configure Docker Hub credentials (if using private images)
+    - Set up private registry access (optional)
+    - Configure image pull policies
 
 4. **Cluster Settings**
-   - Verify Docker Swarm status
-   - Configure default networks
-   - Set resource limits and quotas
+    - Verify Docker Swarm status
+    - Configure default networks
+    - Set resource limits and quotas
 
 !!! warning "Security Setup"
     - **Strong passwords**: Use a password manager for admin credentials
@@ -358,18 +359,21 @@ docker service rm test-service
 ### Essential Next Steps
 
 **Security Hardening:**
+
 - Configure SSL certificates for Dokploy and Traefik
 - Set up proper firewall rules between nodes
 - Enable audit logging for Docker Swarm
 - Configure backup strategies for Dokploy database
 
 **Monitoring Setup:**
+
 - Deploy monitoring stack (Prometheus, Grafana)
 - Configure log aggregation (Loki, Fluentd)
 - Set up alerting for cluster health
 - Monitor resource usage across nodes
 
 **Backup Strategy:**
+
 - Backup Dokploy PostgreSQL database
 - Document cluster configuration
 - Create disaster recovery procedures
@@ -467,18 +471,21 @@ sudo tailscale up --ssh --accept-routes
 ### Regular Maintenance Schedule
 
 **Weekly Tasks:**
+
 - Check cluster health and node status
 - Review service logs for errors
 - Monitor resource usage
 - Verify backup completion
 
 **Monthly Tasks:**
+
 - Update Docker Engine on all nodes
 - Update Dokploy to latest version
 - Review and rotate secrets
 - Test disaster recovery procedures
 
 **Quarterly Tasks:**
+
 - Update Ubuntu Server on all nodes
 - Review security configurations
 - Capacity planning assessment

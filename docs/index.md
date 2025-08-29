@@ -1,60 +1,83 @@
-# Welcome to Rov's Tech Blog!
+# Welcome to Rov's Tech Blog
 
-Welcome to my site! I'm Rov, a Microsoft Cloud DevOps Engineer working in Australia. I have a passion for technology and the ways it can be used in an enterprise environment to improve productivity and efficiency.
+## About This Blog
 
-**If a task can be automated, then it should be!**
+Welcome to my blog. I'm Rov, a Microsoft Cloud DevOps Engineer based in Australia, sharing insights from real-world enterprise environments and home lab experiments.
 
-I have a strong background in Microsoft technologies. If it has been developed by Microsoft, then I have probably worked with it at some point in my career. I have extensive experience with Azure, Office 365, Windows Server, Active Directory, Exchange, SQL Server, SharePoint, PowerShell, and many other Microsoft technologies.
+This blog focuses on practical solutions, best practices, and lessons learned from implementing Microsoft technologies, DevOps practices, and security frameworks in production environments.
 
-I am one of those weirdos that do this not only as a job but also for fun. I am always looking for new technologies to learn and new ways to improve my skills.
-
-Anyway, enough about me—I hope you enjoy my blogs and find them useful. If you have any questions or comments, please feel free to reach out to me! I am always happy to help where I can.
-
-## Home Lab Projects
-
-### Kubernetes Setup Journey
-- **[Night 1 - Development Environment](homelab/K8s/Homelab Night 1.md)** - Setting up WSL, Nix, and the development environment
-- **[Night 2 - Hardware Setup](homelab/K8s/Homelab Night 2.md)** - Configuring Dell OptiPlex hardware and system discovery
-
-### Docker Swarm with Dokploy
-- **[Deployment Plan](homelab/Dokploy/Plan.md)** - Step-by-step guide to building a production-ready home lab
-- **[My Home Lab Guide](homelab/Dokploy/MyHomeLab.md)** - Complete architecture and battle-tested solutions
-
-## Security & Identity Management
-
-### Windows Defender Application Control (WDAC)
-- **[Getting Started](WDAC/GettingStarted.md)** - Introduction to WDAC implementation
-- **[Configuration](WDAC/configuration.md)** - Advanced configuration techniques
-
-### Conditional Access
-- **[Authentication](Conditional Acess/Authentication.md)** - Setting up conditional access policies
-- **[Deployment](Conditional Acess/Deployment.md)** - Deployment strategies and best practices
-
-### Privileged Identity Management (PIM)
-- **[Getting Started](PIM/GettingStarted.md)** - PIM fundamentals and setup
-- **[Groups Management](PIM/Groups.md)** - Managing privileged groups with PIM
-
-## Development & DevOps
-
-### Version Control
-- **[Introduction](Version Control/Intro.md)** - Version control fundamentals
-- **[AZ-400 Certification](Version Control/AZ-400.md)** - Azure DevOps certification guide
-- **[Azure Data Factory](Version Control/AzureDataFactory.md)** - Version control for data pipelines
-- **[Data Ingestion Pipelines](Version Control/IngestionPipelines.md)** - Managing data pipeline versions
-- **[Power BI](Version Control/PowerBI.md)** - Version control for Power BI projects
-- **[Power Pages](Version Control/PowerPages.md)** - Managing Power Pages with version control
-
-## Networking
-
-### Tailscale
-- **[Homelab Configuration](Tailscale/Homelab Config.md)** - Setting up Tailscale for secure home lab access
-
-## Creative Writing
-
-### Game Lore
-- **[Higher Power](Game/HigherPower.md)** - Fantasy world building
-- **[Of Elves](Game/OfElves.md)** - Elven lore and culture
-- **[The Gnomes](Game/TheGnomes.md)** - Gnomish society and traditions
+Recently I have also started on a solo game dev journy as well, so you will also find some of my creative writing and world building in the creative projects section. Be kind, I have only been doing this for a few months, so it's a bit of a learning curve.
 
 ---
+
+## Featured Content
+
+Browse the sections below to explore battle-tested solutions and comprehensive guides:
+
+<div class="grid cards" markdown>
+
+-   :material-kubernetes:{ .lg .middle } **Home Lab Projects**
+
+    ---
+
+    **Enterprise Kubernetes & Container Orchestration**
+
+    Production-grade infrastructure from development to deployment
+
+    [:octicons-arrow-right-24: Kubernetes Journey](homelab/K8s/Homelab Night 1.md)
+    [:octicons-arrow-right-24: Docker Swarm & Dokploy](homelab/Dokploy/Plan.md)
+    [:octicons-arrow-right-24: Complete Lab Guide](homelab/Dokploy/MyHomeLab.md)
+
+-   :material-shield-check:{ .lg .middle } **Security & Identity Management**
+
+    ---
+
+    **Zero-Trust Application Control & Identity Policies**
+
+    Enterprise-grade security implementation and access management
+
+    [:octicons-arrow-right-24: WDAC Implementation](WDAC/GettingStarted.md)
+    [:octicons-arrow-right-24: Conditional Access](Conditional Access/Authentication.md)
+    [:octicons-arrow-right-24: Privileged Groups](PIM/Groups.md)
+
+-   :material-git:{ .lg .middle } **Development & DevOps**
+
+    ---
+
+    **Advanced Git Workflows & Enterprise Development**
+
+    Complex branching strategies and automated deployment pipelines
+
+    [:octicons-arrow-right-24: Version Control Fundamentals](Version Control/Intro.md)
+    [:octicons-arrow-right-24: Data Ingestion Pipelines](Version Control/IngestionPipelines.md)
+    [:octicons-arrow-right-24: Data Platform DevOps](Version Control/AzureDataFactory.md)
+
+-   :material-network:{ .lg .middle } **Networking & Infrastructure**
+
+    ---
+
+    **Enterprise Mesh VPN & Secure Networking**
+
+    Scalable networking solutions for distributed infrastructure
+
+    [:octicons-arrow-right-24: Tailscale Implementation](Tailscale/Homelab Config.md)
+
+-   :material-gamepad-variant:{ .lg .middle } **Creative Projects**
+
+    ---
+
+    **Technical World Building & Game Development**
+
+    Engineering-focused game development and documentation
+
+    [:octicons-arrow-right-24: Higher Power](Game/HigherPower.md)
+    [:octicons-arrow-right-24: Elven Civilisation](Game/OfElves.md)
+    [:octicons-arrow-right-24: Gnomish Society](Game/TheGnomes.md)
+
+</div>
+
+---
+
+!!! info "Connect & Contribute"
+    Found something useful? Have questions or suggestions? Feel free to reach out through the repository or contribute to the discussions. All content is based on real-world implementations and continuously updated with new insights.
 

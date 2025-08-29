@@ -1,0 +1,161 @@
+/* Custom styles for Rov's Tech Blog */
+
+/* Enhanced typography */
+.md-typeset h1 {
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+    border-bottom: 2px solid var(--md-accent-fg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.md-typeset h2 {
+    font-weight: 500;
+    color: var(--md-primary-fg-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Professional card styling for content sections */
+.md-typeset .tabbed-set {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+}
+
+.md-typeset .tabbed-content {
+    padding: 1.5rem;
+    background: var(--md-code-bg-color);
+    border-radius: 0 0 8px 8px;
+}
+
+/* Enhanced admonitions */
+.md-typeset .admonition {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+}
+
+.md-typeset .admonition.quote {
+    border-left: 4px solid var(--md-accent-fg-color);
+    background: linear-gradient(135deg, var(--md-accent-fg-color--transparent) 0%, transparent 100%);
+}
+
+/* Professional link styling */
+.md-typeset a {
+    color: var(--md-accent-fg-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+    border-bottom-color: var(--md-accent-fg-color);
+    color: var(--md-primary-fg-color);
+}
+
+/* Enhanced code blocks */
+.md-typeset .highlight {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Professional navigation */
+.md-header {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.md-tabs {
+    background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-accent-fg-color) 100%);
+}
+
+/* Enhanced footer */
+.md-footer {
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+}
+
+/* Professional spacing */
+.md-typeset p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.md-typeset ul, .md-typeset ol {
+    margin-bottom: 1rem;
+}
+
+.md-typeset li {
+    margin-bottom: 0.5rem;
+}
+
+/* Professional heading styling */
+.md-typeset h2 {
+    letter-spacing: 0.025em;
+}
+
+/* Professional table styling */
+.md-typeset table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive improvements */
+@media screen and (max-width: 76.1875em) {
+    .md-typeset .tabbed-content {
+        padding: 1rem;
+    }
+}
+
+/* Hide navigation on home page - using article content to detect home page */
+article h1:first-child:contains("Welcome to Rov's Tech Blog") ~ * .md-sidebar--primary,
+article h1:first-child:contains("Welcome to Rov's Tech Blog") ~ * .md-sidebar--secondary {
+    display: none !important;
+}
+
+/* Alternative approach - target the page by URL path */
+[data-md-url*="index"] .md-sidebar--primary,
+[data-md-url*="index"] .md-sidebar--secondary,
+[data-md-url*="index"] .md-footer-nav {
+    display: none !important;
+}
+
+/* Another approach - hide on root URL */
+[data-md-url$="/"] .md-sidebar--primary,
+[data-md-url$="/"] .md-sidebar--secondary,
+[data-md-url$="/"] .md-footer-nav {
+    display: none !important;
+}
+
+/* Expand content when sidebars are hidden */
+[data-md-url*="index"] .md-main__inner,
+[data-md-url$="/"] .md-main__inner {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+[data-md-url*="index"] .md-content,
+[data-md-url$="/"] .md-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+}
+
+[data-md-url*="index"] .md-content__inner,
+[data-md-url$="/"] .md-content__inner {
+    margin: 0 auto !important;
+    max-width: 1200px !important;
+    padding: 0 2rem !important;
+}
+
+/* Dark mode enhancements */
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set {
+    border-color: var(--md-default-fg-color--lightest);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

@@ -106,7 +106,7 @@ Some apps (Home Assistant, Jellyfin) benefit from network_mode: host for multica
 - Traefik routes assistant.cooked.beer to the sidecar.
 This keeps all the “smart home” discovery local while giving me a clean public entry (via Cloudflare Tunnel or Traefik).
 
-### 3) Keep Hot, Lock-Sensitive DBs Local (The Jellyfin Fix)
+## 3) Keep Hot, Lock-Sensitive DBs Local (The Jellyfin Fix)
 
 SQLite databases and NFS don't mix well—you'll eventually encounter "database is locked" errors and poor performance. This is because SQLite relies on file locking mechanisms that don't work reliably over network filesystems.
 
@@ -416,19 +416,25 @@ sudo ufw enable
 
 ### Authentication Strategy
 
-**Authelia Integration**: For services that don't have built-in authentication, Authelia provides:
-- Single sign-on across all services
-- Two-factor authentication support
-- Fine-grained access control
-- Integration with external identity providers
+**Entra SSO Integration**: For services that support it, Entra SSO provides:
 
-**Example Authelia middleware configuration:**
-```yaml
-# In your Traefik-enabled service
-deploy:
-  labels:
-    - traefik.http.routers.service.middlewares=authelia@docker
-```
+- Enterprise-grade single sign-on across all compatible services
+- Multi-factor authentication through Microsoft's identity platform
+- Conditional access policies and security controls
+- Seamless integration with existing Microsoft 365 environments
+
+**Cloudflare Access**: For services that don't have built-in Entra SSO support, Cloudflare Access provides:
+
+- Zero Trust security model with identity-based access control
+- Integration with Entra ID as an identity provider
+- Application-level protection without requiring VPN
+- Granular access policies based on user identity and device posture
+
+**Implementation approach:**
+
+1. **Primary**: Use native Entra SSO integration where available
+2. **Fallback**: Protect services with Cloudflare Access + Entra ID authentication
+3. **Result**: Consistent authentication experience across all homelab services
 
 ## Dokploy + Swarm: The Workflow
 
@@ -438,6 +444,7 @@ Dokploy provides a GitOps-style deployment workflow for Docker Swarm, though it'
     Dokploy is currently in beta, so expect some rough edges. However, the core GitOps workflow is stable enough for production home lab use. The development team is actively improving the platform.
 
 **Deployment Process:**
+
 - **GitOps-ish approach**: Each application has a `compose.yaml` in a Git repository
 - **Automated deployment**: Dokploy pulls changes and runs `docker stack deploy`
 - **Service naming**: Stacks appear as `apps-<name>-<suffix>_<service>` in Docker
@@ -466,11 +473,13 @@ docker service ps <service> --no-trunc --format "table {{.ID}}\t{{.Name}}\t{{.Im
     - Check service placement with `docker service ps` to ensure proper node constraints
 
 ## Security and Hygiene
+
 - Firewall on nodes: Open only what you need (HA’s 8123, mDNS/SSDP from LAN).
 - Secrets: Keep admin tokens, DB creds, and B2 keys out of git. Dokploy env/secrets work well.
 - TLS strategy: Internal HTTP is fine for LAN; external paths go through Traefik + Tunnel with TLS terminated at the edge.
 
 ## Lessons Learned (so you don’t have to)
+
 1. NFS versions matter. Synology’s NFS v3 exports behave differently from NFS v4/v4.1. Match the server.
 2. Spaces in export paths are real paths. Quote the device string exactly as exported.
 3. SQLite over NFS is fragile. Put the hot .db files on local ext4 and leave the bulk on NFS.
@@ -493,6 +502,7 @@ While not covered in detail here, a production home lab benefits from proper mon
 ### Disaster Recovery Planning
 
 **Backup Strategy Expansion:**
+
 - **Configuration backups**: Regular exports of Dokploy configurations
 - **Database dumps**: Automated PostgreSQL and other database backups
 - **Infrastructure as Code**: Document all manual configurations for reproducibility
@@ -513,6 +523,7 @@ docker stats $(docker ps --format "table {{.Names}}" | grep -v NAMES)
 ```
 
 **Service Placement Strategies:**
+
 - **Database services**: Pin to nodes with fastest storage (SSDs)
 - **CPU-intensive services**: Distribute across nodes with adequate CPU
 - **Memory-heavy services**: Consider memory constraints when placing services
@@ -530,6 +541,7 @@ sudo iftop -i docker_gwbridge
 ```
 
 **Bandwidth Considerations:**
+
 - **Media streaming**: Ensure adequate bandwidth for multiple concurrent streams
 - **Backup operations**: Schedule during off-peak hours to avoid congestion
 - **NFS traffic**: Monitor NFS performance during peak usage
@@ -542,16 +554,19 @@ sudo iftop -i docker_gwbridge
 ### Regular Maintenance Tasks
 
 **Weekly:**
+
 - Check service health and logs
 - Verify backup completion
 - Monitor storage usage
 
 **Monthly:**
+
 - Update container images
 - Review security logs
 - Test disaster recovery procedures
 
 **Quarterly:**
+
 - Update host operating systems
 - Review and rotate secrets
 - Capacity planning assessment
@@ -562,6 +577,7 @@ sudo iftop -i docker_gwbridge
 ### Storage Performance Optimisation
 
 **Tiered Storage Strategy:**
+
 - **Tier 1 (SSD)**: Databases, application caches, frequently accessed data
 - **Tier 2 (NFS/HDD)**: Configuration files, logs, infrequently accessed media
 - **Tier 3 (Cloud)**: Backups, archival data
@@ -576,11 +592,13 @@ mount -t nfs -o rsize=1048576,wsize=1048576,hard,intr,timeo=600 \
 ### Network Performance Optimisation
 
 **Bandwidth Planning:**
+
 - **4K streaming**: 25-50 Mbps per stream
 - **Photo uploads**: Burst bandwidth for mobile device sync
 - **Backup operations**: Schedule during off-peak hours
 
 **Quality of Service (QoS):**
+
 - Prioritise real-time traffic (Home Assistant, media streaming)
 - Limit backup bandwidth during peak hours
 - Monitor network utilisation patterns
@@ -600,6 +618,7 @@ This home lab setup provides a robust foundation for self-hosted services while 
 The combination of Docker Swarm's simplicity with Dokploy's GitOps workflow creates a maintainable platform that can evolve with your needs. While there are rough edges (especially with Dokploy being in beta), the core architecture is solid and production-ready for home use.
 
 **Next Steps:**
+
 - Implement comprehensive monitoring
 - Expand backup coverage to all critical services
 - Document disaster recovery procedures
