@@ -1,6 +1,6 @@
 site_name: "Rov's Tech Blog"
 site_url: https://rovblog.cooked.beer
-site_description: "Microsoft Cloud DevOps Engineer sharing home lab projects, security implementations, and development best practices"
+site_description: "Professional insights into Microsoft technologies, DevOps practices, security implementations, and enterprise solutions from a Cloud DevOps Engineer"
 site_author: "Rov"
 copyright: "Copyright &copy; 2024 Rov"
 
@@ -10,32 +10,55 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: docs/overrides
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  font:
+    text: "Poppins"
+    code: "JetBrains Mono"
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: deep purple
-      accent: pink
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: deep purple
-      accent: pink
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.prune
+    - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
     - navigation.top
-    - toc.integrate
-    - search.suggest
+    - navigation.tracking
     - search.highlight
     - search.share
-    - content.code.copy
-    - content.code.annotate
-
-  font:
-    text: "Poppins"
-    code: "JetBrains Mono"
+    - search.suggest
+    - toc.follow
+    - toc.integrate
   icon:
     logo: fontawesome/solid/terminal
     repo: fontawesome/brands/github
@@ -70,15 +93,14 @@ nav:
           - Getting Started: WDAC/GettingStarted.md
           - Configuration: WDAC/configuration.md
       - Conditional Access:
-          - Authentication: Conditional Acess/Authentication.md
-          - Deployment: Conditional Acess/Deployment.md
+          - Authentication: Conditional Access/Authentication.md
+          - Deployment: Conditional Access/Deployment.md
       - Privileged Identity Management (PIM):
           - Getting Started: PIM/GettingStarted.md
           - Groups Management: PIM/Groups.md
   - Development & DevOps:
       - Version Control:
           - Introduction: Version Control/Intro.md
-          - AZ-400 Certification: Version Control/AZ-400.md
           - Azure Data Factory: Version Control/AzureDataFactory.md
           - Data Ingestion Pipelines: Version Control/IngestionPipelines.md
           - Power BI: Version Control/PowerBI.md
@@ -101,13 +123,13 @@ extra:
       link: https://discord.com/users/253028999666728960
   generator: false
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags
-
-extra_css:
-  - stylesheets/custom.css
 
 markdown_extensions:
   - abbr

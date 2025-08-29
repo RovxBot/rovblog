@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  {% if page.title and not page.is_homepage %}
+    <title>{{ page.title | striptags }} - {{ config.site_name }}</title>
+  {% else %}
+    <title>{{ config.site_name }}</title>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  {% if page and page.file and page.file.src_path == "index.md" %}
+    <style>
+      /* Hide navigation elements on home page only */
+      .md-sidebar--primary,
+      .md-sidebar--secondary {
+        display: none !important;
+      }
+
+      /* Hide all footer navigation elements - comprehensive approach */
+      .md-footer-nav,
+      .md-footer__inner .md-footer-nav,
+      .md-footer .md-footer-nav,
+      nav.md-footer-nav,
+      .md-footer__inner,
+      .md-footer .md-footer__inner,
+      .md-footer-nav__inner,
+      .md-footer-nav__link,
+      .md-footer__link,
+      .md-footer a[href*="Night"],
+      .md-footer [class*="next"],
+      .md-footer [class*="prev"] {
+        display: none !important;
+      }
+
+      /* Hide the entire footer if it contains navigation */
+      .md-footer:has(.md-footer-nav),
+      .md-footer:has([href*="Night"]) {
+        display: none !important;
+      }
+
+      /* Center the content container with good max-width */
+      .md-content__inner {
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        padding: 2rem !important;
+      }
+
+      /* Only center the main page title and section headings */
+      .md-typeset h1,
+      .md-typeset h2 {
+        text-align: center !important;
+      }
+
+      /* Keep all other content left-aligned for readability */
+      .md-typeset h3,
+      .md-typeset h4,
+      .md-typeset h5,
+      .md-typeset h6,
+      .md-typeset p,
+      .md-typeset ul,
+      .md-typeset ol,
+      .md-typeset li {
+        text-align: left !important;
+      }
+
+      /* Modern card-based design for major sections */
+      .md-typeset h2 {
+        background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color)) !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border-radius: 12px !important;
+        margin: 2rem 0 1.5rem 0 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        font-weight: 600 !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      /* Add subtle animation to section headers */
+      .md-typeset h2:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+        transition: all 0.3s ease !important;
+      }
+
+      /* Style the content sections with cards */
+      .md-typeset .tabbed-set {
+        background: var(--md-default-bg-color) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        margin: 1.5rem 0 !important;
+        overflow: hidden !important;
+        border: 1px solid var(--md-default-fg-color--lightest) !important;
+      }
+
+      /* Enhanced quote/info boxes */
+      .md-typeset .admonition {
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        margin: 2rem 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+      }
+
+      .md-typeset .admonition.quote {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+      }
+
+      .md-typeset .admonition.info {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+        color: white !important;
+      }
+
+      /* Enhanced typography and spacing */
+      .md-typeset h1 {
+        font-size: 2.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.5rem !important;
+        background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color)) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+      }
+
+      /* Better spacing for content sections */
+      .md-typeset h3 {
+        color: var(--md-primary-fg-color) !important;
+        font-weight: 600 !important;
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
+        padding-left: 1rem !important;
+        border-left: 4px solid var(--md-primary-fg-color) !important;
+      }
+
+      /* Style the tab content areas */
+      .md-typeset .tabbed-content {
+        padding: 2rem !important;
+        background: var(--md-code-bg-color) !important;
+        border-radius: 0 0 12px 12px !important;
+      }
+
+      /* Enhanced link styling */
+      .md-typeset a {
+        color: var(--md-primary-fg-color) !important;
+        text-decoration: none !important;
+        border-bottom: 2px solid transparent !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .md-typeset a:hover {
+        border-bottom-color: var(--md-primary-fg-color) !important;
+        transform: translateY(-1px) !important;
+      }
+
+      /* Add breathing room between major sections */
+      .md-typeset hr {
+        margin: 3rem 0 !important;
+        border: none !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, var(--md-primary-fg-color), transparent) !important;
+      }
+
+
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Debug: log all footer elements
+        console.log('All footer elements:', document.querySelectorAll('[class*="footer"]'));
+        console.log('All nav elements:', document.querySelectorAll('nav'));
+
+        // Hide all possible footer navigation elements
+        const selectors = [
+          '.md-footer-nav',
+          '.md-footer__inner nav',
+          '.md-footer nav',
+          'nav.md-footer-nav',
+          '[class*="footer"] nav',
+          '.md-footer .md-nav',
+          '.md-footer-nav__inner',
+          '.md-footer-nav__link'
+        ];
+
+        selectors.forEach(selector => {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach(el => {
+            el.style.display = 'none';
+            console.log('Hidden element:', el);
+          });
+        });
+
+        // Hide the entire footer section - it's likely only navigation on home page
+        const footer = document.querySelector('.md-footer');
+        if (footer) {
+          const footerContent = footer.textContent.trim();
+          console.log('Footer content:', footerContent);
+
+          // Hide footer if it contains navigation terms or if it's the home page
+          if (footerContent.includes('Next') || footerContent.includes('Previous') ||
+              footerContent.includes('Night') || footerContent.includes('Development')) {
+            footer.style.display = 'none';
+            console.log('Hidden entire footer due to navigation content');
+          }
+
+          // Also hide any links that contain "Night" (specific to your site)
+          const nightLinks = document.querySelectorAll('a[href*="Night"], a[title*="Night"]');
+          nightLinks.forEach(link => {
+            link.closest('.md-footer')?.style.setProperty('display', 'none', 'important');
+            console.log('Hidden footer containing Night link:', link);
+          });
+        }
+      });
+    </script>
+  {% endif %}
+{% endblock %}
