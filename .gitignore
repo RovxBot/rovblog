@@ -1,2 +1,157 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
+# MkDocs Build Output
+site/
+.cache/
+
+# Python Virtual Environment
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+bin/
+lib/
+lib64/
+pyvenv.cfg
+include/
+Scripts/
+
+# Python Cache and Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Windows System Files
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Node.js (if using any Node-based tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Local Development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# MkDocs Specific
+.mkdocs_cache/
+
+# Git Commit Message Template
+.git/COMMIT_EDITMSG
+
+# Cloudflare Deployment (if using Wrangler)
+.wrangler/
+wrangler.toml.bak
+
+# Local Testing Scripts
+serve.bat.bak
+test-local.*
+
+# Documentation Drafts
+drafts/
+*.draft.md
+*-draft.md
+
+# Backup Files
+*.orig
+*.rej
+
+# Project Specific
+requirements.txt.bak
+SharePoint CAB/
+*.cab
+
+# Local Configuration
+.local/
+.config/
+
+# Python Package Files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage Reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
 

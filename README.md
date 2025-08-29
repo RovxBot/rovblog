@@ -78,15 +78,15 @@ All internal links are automatically validated during build. Use relative paths 
 
 ## Deployment
 
-The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+The site is deployed via Cloudflare Pages, which automatically builds and deploys when changes are pushed to the main branch.
 
-### Manual Deployment
+### Manual Local Build
 ```bash
-# Build the site
+# Build the site locally for testing
 mkdocs build
 
-# Deploy to GitHub Pages
-mkdocs gh-deploy
+# The built site will be in the 'site/' directory
+# Cloudflare Pages will handle the deployment automatically
 ```
 
 ## Content Categories
